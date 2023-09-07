@@ -1,0 +1,104 @@
+
+<mat-toolbar  class="example-toolbar" [ngClass]="{'dark-mode': isDarkMode}">
+	<!-- <h1 class="example-app-name"
+	  style="background-image: url('../../assets/image/HMS-logo.png');  background-repeat: no-repeat; background-position: left;background-size: 45px; padding-left: 3.2rem;padding-top: 5px;">
+	  Chitti Management System</h1> -->
+	  <div class="header-style">
+		<div class="head_left">
+		  <h1 class="example-app-name"
+		  style="background-image: url('../../../assets/image/HMS-logo.png');  background-repeat: no-repeat; background-position: left;background-size: 45px; padding-left: 3.2rem;padding-top: 5px;">
+		  Chitti Management System</h1>
+		</div>
+		<div class="header-right" >
+		  <button mat-icon-button (click)="toggleDarkMode()">
+			<mat-icon>light_mode</mat-icon>
+		  </button>
+		  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+			<mat-icon style="background-image: url('../../../assets/image/icons8-male-user-48.png');  background-repeat: no-repeat; background-position: left;background-size: 37px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  </button>
+		  <mat-menu #menu="matMenu">
+			<button mat-menu-item>
+			  <mat-icon  style="background-image: url('../../../assets/image/icons8-male-user-48.png');  background-repeat: no-repeat; background-position: left;background-size: 37px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+			  <span>Koteswara Rao</span>
+			</button>
+			<button mat-menu-item >
+			  <mat-icon>settings</mat-icon>
+			  <span>Settings</span>
+			</button>
+			<button mat-menu-item>
+			  <mat-icon>notifications_off</mat-icon>
+			  <span>Disable alerts</span>
+			</button>
+			<button  mat-menu-item  (click)="logout()">Logout  <mat-icon>arrow_forward</mat-icon>
+			</button>
+		  </mat-menu>
+		</div>
+	  </div>
+	
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container" class="example-sidenav" autosize class="example-container" [ngClass]="{'dark-mode': isDarkMode}">
+	<mat-sidenav #sidenav class="example-sidenav" mode="side"  opened="true" (mouseenter)="mouseenter()" class="example-sidenav" fxHide.lt-md
+	  (mouseleave)="mouseleave()">
+	  <button mat-icon-button (click)="isExpanded = !isExpanded" align="right">
+		<mat-icon style="color:black;font-size: 2rem;margin: 14px 238px;">menu</mat-icon>
+	  </button>
+	  <mat-nav-list [ngClass]="{'dark-mode': isDarkMode}">
+		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+		  <mat-icon
+		  style="background-image: url('../../../assets/image/icons8-home-32.png');  background-repeat: no-repeat; background-position: left;background-size: 27px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  <span class="full-width" *ngIf="isExpanded || isShowing"><a mat-list-item routerLink="/master-chitti-list"> Master Chitti
+			  Details</a></span>
+		</mat-list-item>
+	  </mat-nav-list>
+	  <mat-nav-list>
+		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+		  <mat-icon
+			style="background-image: url('../../../assets/image/icons8-person-48\ \(1\).png');  background-repeat: no-repeat; background-position: left;background-size: 30px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  <span class="full-width" *ngIf="isExpanded || isShowing"><a mat-list-item routerLink="/coustmer-regstration"> Coustmer
+			  Registration</a></span>
+		</mat-list-item>
+	  </mat-nav-list>
+	 
+	  <mat-nav-list>
+		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+		  <mat-icon
+			style="background-image: url('../../../assets/image/icons8-money-48.png');  background-repeat: no-repeat; background-position: left;background-size: 35px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  <span class="full-width" *ngIf="isExpanded || isShowing"><a mat-list-item routerLink="/chitti-payment"> Chitti Payment
+			  Details</a></span>
+		</mat-list-item>
+	  </mat-nav-list>
+	  <mat-nav-list>
+		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+		   <mat-icon
+		  style="background-image: url('../../../assets/image/icons8-folder-48.png');  background-repeat: no-repeat; background-position: left;background-size: 27px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  <span class="full-width" *ngIf="isExpanded || isShowing"><a mat-list-item routerLink="/primum-details"> Primum
+			  Details</a></span>
+		</mat-list-item>
+	  </mat-nav-list>
+	  <mat-nav-list>
+		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+		  <mat-icon
+			style="background-image: url('../../../assets/image/icons8-person-48\ \(1\).png');  background-repeat: no-repeat; background-position: left;background-size: 30px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  <span class="full-width" *ngIf="isExpanded || isShowing"><a mat-list-item routerLink="/about"> Chitti Lifiting
+			  Details</a></span>
+		</mat-list-item>
+	  </mat-nav-list>
+	  <mat-nav-list>
+		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+		  <mat-icon
+			style="background-image: url('../../../assets/image/icons8-person-48\ \(1\).png');  background-repeat: no-repeat; background-position: left;background-size: 30px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		  <span class="full-width" *ngIf="isExpanded || isShowing"><a mat-list-item routerLink="/about"> Bid
+			  Details</a></span>
+		</mat-list-item>
+	  </mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content class="content-container" class="content-container" [ngClass]="{'dark-mode': isDarkMode}">
+	  <!-- <button mat-icon-button (click)="isExpanded = !isExpanded" align="right">
+		<mat-icon style="color:black;font-size: 2rem;">menu</mat-icon>
+	  </button>  -->
+	  <router-outlet></router-outlet>
+	</mat-sidenav-content>
+  </mat-sidenav-container>
+  
+
+
