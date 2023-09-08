@@ -140,17 +140,16 @@
 	</div>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosized>
-	<mat-sidenav class="example-sidenav" mode="side" opened="true">
+	<mat-sidenav class="example-sidenav" mode="side" opened="true" (mouseleave)="mouseleave()" (mouseenter)="mouseenter()" style="background-color: rgba(135, 191, 197, 0.46);">
 		<div>
-			<span class="gap1"></span>
-			<button mat-icon-button><mat-icon>menu</mat-icon></button>
+			<button mat-icon-button (click)="isExpanded = !isExpanded" align="right"  *ngIf="isExpanded || isShowing" class="nav-menu-button"><mat-icon>menu</mat-icon></button>
 		</div>
 		<mat-nav-list>
-			<mat-list-item>
+			<mat-list-item routerLink="/master-chitti-list">
 				<button mat-icon-button>
 					<mat-icon>account_balance</mat-icon>
 				</button>
-				<span class="span-list-item" routerLink="/master-chitti-list">Master Chitti Details</span>
+				<span class="span-list-item" *ngIf="isExpanded || isShowing">Master Chitti Details</span>
 			</mat-list-item>
 		</mat-nav-list>
 		<mat-nav-list>
@@ -158,7 +157,7 @@
 				<button mat-icon-button>
 					<mat-icon>account_box</mat-icon>
 				</button>
-				<span class="span-list-item">Customer Registration</span>
+				<span class="span-list-item" *ngIf="isExpanded || isShowing">Customer Registration</span>
 			</mat-list-item>
 		</mat-nav-list>
 		<mat-nav-list>
@@ -166,7 +165,7 @@
 				<button mat-icon-button>
 					<mat-icon>account_balance_wallet</mat-icon>
 				</button>
-				<span class="span-list-item">Chitti Payment Details</span>
+				<span class="span-list-item" *ngIf="isExpanded || isShowing">Chitti Payment Details</span>
 			</mat-list-item>
 		</mat-nav-list>
 		<mat-nav-list>
@@ -174,7 +173,7 @@
 				<button mat-icon-button>
 					<mat-icon>subscriptions</mat-icon>
 				</button>
-				<span class="span-list-item">Premium Details</span>
+				<span class="span-list-item" *ngIf="isExpanded || isShowing">Premium Details</span>
 			</mat-list-item>
 		</mat-nav-list>
 		<mat-nav-list>
@@ -182,7 +181,7 @@
 				<button mat-icon-button>
 					<mat-icon>equalizer</mat-icon>
 				</button>
-				<span class="span-list-item">Chitti Lifting Details</span>
+				<span class="span-list-item" *ngIf="isExpanded || isShowing">Chitti Lifting Details</span>
 			</mat-list-item>
 		</mat-nav-list>
 		<mat-nav-list>
@@ -190,7 +189,7 @@
 				<button mat-icon-button>
 					<mat-icon>markunread</mat-icon>
 				</button>
-				<span class="span-list-item">Bid Details</span>
+				<span class="span-list-item" *ngIf="isExpanded || isShowing">Bid Details</span>
 			</mat-list-item>
 		</mat-nav-list>
 	</mat-sidenav>
