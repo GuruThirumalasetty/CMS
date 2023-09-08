@@ -1,0 +1,110 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<mat-card class="matcard-bg-color">
+      <mat-dialog-actions style="text-align: end;">
+        <button mat-icon-button [mat-dialog-close]="true" (click)="closedialog()" >
+          <mat-icon color="warn" >close</mat-icon>
+        </button>
+      </mat-dialog-actions>
+      <span class="font-style" style="margin: 15px;margin-top: -34px;">Master Chitti Create</span>
+      <mat-card style="margin: 20px;margin-top: 2px;" class="mat-card-bgs">
+      <div  fxLayout.xs="row" fxLayoutGap="1rem" style="margin-left: 36px;margin-top: 20px;">
+        <div fxLayout="row" fxFlex="100" fxLayout.xs="column" fxLayoutGap="0px" >
+            <mat-form-field fxFlex="50" class="example-form-field" appearance="outline" >
+                <mat-label>Chitti Type</mat-label>
+                    <mat-select value="value" class="mat-option-style-select"  (selectionChange)="chittiTypeChange($event.value)" value="value">
+                        <mat-option class="mat-option-style">Select</mat-option>
+                        <mat-option class="mat-option-style" value="CompanyChitti">Company Chitti</mat-option>
+                        <mat-option class="mat-option-style" value="FixedChitti">Fixed Chitti</mat-option>
+                        <mat-option class="mat-option-style" value="DividendChitti">Dividend Chitti</mat-option>
+                    </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+      <mat-card style="margin: 1rem;" class="mat-card-bgs" *ngIf="CompanyChitti">
+            <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="1rem" style="margin-top: 0.5rem;margin: 1rem;" >
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>Chitti Name</mat-label>
+                    <input matInput  type="text" class="input-typing-style" 
+                        placeholder="Please Enter Chitti Name">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>No of Members</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter No of Members">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>No of Months</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter No of Months">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="minbid">
+                    <mat-label>Min Bid Amount</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter Min Bid Amount">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>Company Chitti Month</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>Start From</mat-label>
+                    <input matInput [matDatepicker]="picker1">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>End From</mat-label>
+                    <input matInput [matDatepicker]="picker2">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                  </mat-form-field>
+                  
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>Monthly Amount</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter Monthly Amount">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="maxbid">
+                    <mat-label>Max Bid Amount</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter Max Bid Amount">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>Chitti Value</mat-label>
+                    <input matInput  type="text" class="input-typing-style" 
+                        placeholder="Please Enter Chitti Value">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="Deduction">
+                    <mat-label>Deduction(Commision)</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter Deduction">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-label>Amount After Lifiting</mat-label>
+                    <input matInput  type="text" class="input-typing-style"
+                        placeholder="Please Enter Amount After Lifiting">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="amounttocompany">
+                    <mat-label> Amount To Company</mat-label>
+                    <input matInput type="text" class="input-typing-style" placeholder="Please Enter Amount To Company">
+                </mat-form-field>
+                <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="biddate">
+                    <mat-label>Bid Date</mat-label>
+                    <input matInput  type="date" class="input-typing-style"
+                        placeholder="Please Select Bid date">
+                </mat-form-field>
+              
+            </div>
+            <div align="center" *ngIf="submit" style="margin: 0 0 1rem;">
+                <button mat-raised-button class="btn-primary" >Submit </button>
+              </div>
+      </mat-card>
+    </mat-card>
+</mat-card>

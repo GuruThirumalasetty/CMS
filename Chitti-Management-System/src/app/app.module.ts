@@ -21,16 +21,27 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-//import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
+import { MasterChittiListComponent } from './Admin-Pages/master-chitti-list/master-chitti-list.component';
+import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/customer-chitti-list.component';
+import { MasterChittiCreateComponent } from './Admin-Pages/master-chitti-list/master-chitti-create/master-chitti-create.component';
+import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-list/customer-registration/customer-registration.component';
+import { DasboardComponent } from './dasboard/dasboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SideNavComponent
+    SideNavComponent,
+    MasterChittiListComponent,
+    CustomerChittiListComponent,
+    MasterChittiCreateComponent,
+    CustomerRegistrationComponent,
+    DasboardComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +63,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule,
+    MatTableModule,
+   FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -116,7 +116,7 @@
   //     color: #fff;
   // }
   .example-sidenav {
-    background-color:rgb(132 196 146 / 96%);
+    background-color:rgb(171 213 180 / 96%);
     color: #ffffff;
     z-index: 1;
     position: fixed;
@@ -149,3 +149,29 @@
     color: #fff;
     background-color: green;
   }
+
+.toolbar{
+  background-color: green;
+  color: white;
+}
+.gap{
+  flex: 1 1 auto;
+}
+.example-container {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.span-list-item{
+  padding-bottom: 10px;
+}
+.nav-menu-button{
+  margin-left: 70%;
+  margin-top: 10px;
+}
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+ 
+  margin: 0;
+  font-family: initial;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
