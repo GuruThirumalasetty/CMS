@@ -8,7 +8,14 @@ const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"login",component:LoginComponent},
   {path:"side-nav",component:SideNavComponent},
-  {path:"master-chitti-list",component:MasterChittiListComponent}
+  {
+    path: 'master-chitti-list',
+    component: SideNavComponent,
+    children: [
+      { path: '', component:MasterChittiListComponent  }
+     
+    ]
+  }
 ];
 
 @NgModule({
