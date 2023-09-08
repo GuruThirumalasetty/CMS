@@ -11,7 +11,7 @@ export class AuthService {
   login(username: string, password: string): boolean {
     if (username === 'koti' && password === 'koti@123') {
       this.authenticatedUser = username;
-      localStorage.setItem(username,'UserName')
+      localStorage.setItem('UserName',username)
       return true;
     }
     return false;
