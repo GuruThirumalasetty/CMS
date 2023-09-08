@@ -45,27 +45,43 @@
     width: 100%;
   }
   
-  .mat-header-cell {
-    color: #212529;
-    font-weight: 900;
-   // padding: 1rem 0.75rem;
-    font-size: 1.07rem;
+  // .mat-header-cell {
+  //   color: #212529;
+  //   font-weight: 900;
+  //  // padding: 1rem 0.75rem;
+  //   font-size: 1.07rem;
+  //   font-family: initial;
+  //   text-align: center !important;
+  //   background-color: rgb(0 128 0 / 78%);
+  //   color: #fff;
+  // }
+  
+  // .mat-cell,
+  // .mat-footer-cell {
+  //   color: #272b41;
+  //   font-family: 'Times New Roman', Times, serif;
+  //   font-size: 0.9375rem;
+  //   text-align: center !important;
+  //   font-weight: 400;
+  //   padding: 5px;
+  // }
+  .mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0 16px 0 16px;
     font-family: initial;
-    text-align: center !important;
-    background-color: rgb(0 128 0 / 78%);
-    color: #fff;
-  }
-  
-  .mat-cell,
-  .mat-footer-cell {
-    color: #272b41;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 0.9375rem;
-    text-align: center !important;
-    font-weight: 400;
-    padding: 5px;
-  }
-  
+    font-size: 1rem;
+}
+.mdc-data-table__header-cell {
+  border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
+  border-bottom-style: solid;
+  line-height: inherit;
+  font-weight: 800;
+  font-size: 1.2rem; 
+  color: white;
+}
+.mat-mdc-table .mat-mdc-header-cell {
+  background: green; 
+  color: white;
+}
   mat-card {
     box-shadow: none !important;
     border-radius: 4px;
