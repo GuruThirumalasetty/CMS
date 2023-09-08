@@ -1,9 +1,11 @@
 
-<mat-toolbar  class="example-toolbar" [ngClass]="{'dark-mode': isDarkMode}">
+<!-- <mat-toolbar  class="example-toolbar" [ngClass]="{'dark-mode': isDarkMode}"> -->
+
 	<!-- <h1 class="example-app-name"
 	  style="background-image: url('../../assets/image/HMS-logo.png');  background-repeat: no-repeat; background-position: left;background-size: 45px; padding-left: 3.2rem;padding-top: 5px;">
 	  Chitti Management System</h1> -->
-	  <div class="header-style">
+
+	  <!-- <div class="header-style">
 		<div class="head_left">
 		  <h1 class="example-app-name"
 		  style="background-image: url('../../../assets/image/HMS-logo.png');  background-repeat: no-repeat; background-position: left;background-size: 45px; padding-left: 3.2rem;padding-top: 5px;">
@@ -34,8 +36,8 @@
 		  </mat-menu>
 		</div>
 	  </div>
-	
   </mat-toolbar>
+
   <mat-sidenav-container class="example-container" class="example-sidenav" autosize class="example-container" [ngClass]="{'dark-mode': isDarkMode}">
 	<mat-sidenav #sidenav class="example-sidenav" mode="side"  opened="true" (mouseenter)="mouseenter()" class="example-sidenav" fxHide.lt-md
 	  (mouseleave)="mouseleave()">
@@ -92,13 +94,107 @@
 		</mat-list-item>
 	  </mat-nav-list>
 	</mat-sidenav>
-	<mat-sidenav-content class="content-container" class="content-container" [ngClass]="{'dark-mode': isDarkMode}">
+	<mat-sidenav-content class="content-container" class="content-container" [ngClass]="{'dark-mode': isDarkMode}"> -->
+
 	  <!-- <button mat-icon-button (click)="isExpanded = !isExpanded" align="right">
 		<mat-icon style="color:black;font-size: 2rem;">menu</mat-icon>
 	  </button>  -->
-	  <router-outlet></router-outlet>
+
+	  <!-- <router-outlet></router-outlet>
 	</mat-sidenav-content>
-  </mat-sidenav-container>
+  </mat-sidenav-container> -->
   
 
-
+<mat-toolbar class="toolbar">
+	<div class="header-style">
+		<div class="head_left">
+		  <h1 class="example-app-name"
+		  style="background-image: url('../../../assets/image/HMS-logo.png');  background-repeat: no-repeat; background-position: left;background-size: 45px; padding-left: 3.2rem;padding-top: 5px;">
+		  Chitti Management System</h1>
+		</div>
+	</div>
+	<span class="gap"></span>
+	<button mat-icon-button (click)="toggleDarkMode()" title="dark-mode">
+		<mat-icon>light_mode</mat-icon>
+	</button>
+	<div class="header-right" >
+		<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+		  <mat-icon style="background-image: url('../../../assets/image/icons8-male-user-48.png');  background-repeat: no-repeat; background-position: left;background-size: 37px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+		</button>
+		<mat-menu #menu="matMenu">
+		  <button mat-menu-item>
+			<mat-icon  style="background-image: url('../../../assets/image/icons8-male-user-48.png');  background-repeat: no-repeat; background-position: left;background-size: 37px; padding-left: 10px;padding-top: 10px;"></mat-icon>
+			<span>Koteswara Rao</span>
+		  </button>
+		  <button mat-menu-item >
+			<mat-icon>settings</mat-icon>
+			<span>Settings</span>
+		  </button>
+		  <button mat-menu-item>
+			<mat-icon>notifications_off</mat-icon>
+			<span>Disable alerts</span>
+		  </button>
+		  <button  mat-menu-item  (click)="logout()">Logout  <mat-icon>arrow_forward</mat-icon>
+		  </button>
+		</mat-menu>
+	</div>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosized>
+	<mat-sidenav class="example-sidenav" mode="side" opened="true">
+		<div>
+			<span class="gap1"></span>
+			<button mat-icon-button><mat-icon>menu</mat-icon></button>
+		</div>
+		<mat-nav-list>
+			<mat-list-item>
+				<button mat-icon-button>
+					<mat-icon>account_balance</mat-icon>
+				</button>
+				<span class="span-list-item">Master Chitti Details</span>
+			</mat-list-item>
+		</mat-nav-list>
+		<mat-nav-list>
+			<mat-list-item>
+				<button mat-icon-button>
+					<mat-icon>account_box</mat-icon>
+				</button>
+				<span class="span-list-item">Customer Registration</span>
+			</mat-list-item>
+		</mat-nav-list>
+		<mat-nav-list>
+			<mat-list-item>
+				<button mat-icon-button>
+					<mat-icon>account_balance_wallet</mat-icon>
+				</button>
+				<span class="span-list-item">Chitti Payment Details</span>
+			</mat-list-item>
+		</mat-nav-list>
+		<mat-nav-list>
+			<mat-list-item>
+				<button mat-icon-button>
+					<mat-icon>subscriptions</mat-icon>
+				</button>
+				<span class="span-list-item">Premium Details</span>
+			</mat-list-item>
+		</mat-nav-list>
+		<mat-nav-list>
+			<mat-list-item>
+				<button mat-icon-button>
+					<mat-icon>equalizer</mat-icon>
+				</button>
+				<span class="span-list-item">Chitti Lifting Details</span>
+			</mat-list-item>
+		</mat-nav-list>
+		<mat-nav-list>
+			<mat-list-item>
+				<button mat-icon-button>
+					<mat-icon>markunread</mat-icon>
+				</button>
+				<span class="span-list-item">Bid Details</span>
+			</mat-list-item>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
