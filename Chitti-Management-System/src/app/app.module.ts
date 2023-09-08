@@ -29,6 +29,7 @@ import { MasterChittiListComponent } from './Admin-Pages/master-chitti-list/mast
 import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/customer-chitti-list.component';
 import { MasterChittiCreateComponent } from './Admin-Pages/master-chitti-list/master-chitti-create/master-chitti-create.component';
 import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-list/customer-registration/customer-registration.component';
+import { DasboardComponent } from './dasboard/dasboard.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-lis
     MasterChittiListComponent,
     CustomerChittiListComponent,
     MasterChittiCreateComponent,
-    CustomerRegistrationComponent
+    CustomerRegistrationComponent,
+    DasboardComponent
   ],
   imports: [
     BrowserModule,
