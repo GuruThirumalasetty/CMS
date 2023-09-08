@@ -1,1 +1,38 @@
-<p>login works!</p>
+
+  
+  <!-- <div class="login-container" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form  fxLayout="column" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" name="username" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password" type="password" formControlName="password" name="password" required>
+          </mat-form-field>
+          <button mat-raised-button class="btn-primary" color="primary" type="submit" fxFlex>Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div> -->
+    
+  <!--  -->
+  <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h3 style="color: #fff; font-family: 'Times New Roman', Times, serif;">Login Here</h3>
+      <label for="username" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Username</label>
+      <input matInput placeholder="Username" formControlName="username" name="username" required style="color: #fff;">
+      <label for="password" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Password</label>
+      <input matInput placeholder="Password" type="password" formControlName="password" name="password" required style="color: #fff;">
+      <button>Log In</button>
+     
+  </form>
+  </div>
+
+  
+  
+  
+
