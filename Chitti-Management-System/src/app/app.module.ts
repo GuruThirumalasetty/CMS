@@ -60,7 +60,9 @@ import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-lis
     MatListModule,
     MatIconModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
