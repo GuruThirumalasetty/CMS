@@ -25,12 +25,20 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
+import { MasterChittiListComponent } from './Admin-Pages/master-chitti-list/master-chitti-list.component';
+import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/customer-chitti-list.component';
+import { MasterChittiCreateComponent } from './Admin-Pages/master-chitti-list/master-chitti-create/master-chitti-create.component';
+import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-list/customer-registration/customer-registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SideNavComponent
+    SideNavComponent,
+    MasterChittiListComponent,
+    CustomerChittiListComponent,
+    MasterChittiCreateComponent,
+    CustomerRegistrationComponent
   ],
   imports: [
     BrowserModule,
