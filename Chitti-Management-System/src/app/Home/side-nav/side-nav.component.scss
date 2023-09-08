@@ -1,177 +1,174 @@
 .example-container {
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  .example-app-name {
-    color: #fff;
-    font-family: initial;
-    font-size: 1.5rem;
-    font-weight: 900;
-  }
-  .full-width {
-    width: 100%;
-  }
-  .mat-list-base {
-    padding-top: 0px;
-    display: block;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-  .menu-button {
-    transition: 300ms ease-in-out;
-    transform: rotate(0deg);
-  }
-  .menu-button.rotated {
-    transform: rotate(180deg);
-  }
-  
-  .submenu {
-    overflow-y: hidden;
-    transition: transform 300ms ease;
-    transform: scaleY(0);
-    transform-origin: top;
-    padding-left: 30px;
-  }
-  
-  .submenu.expanded {
-    transform: scaleY(1);
-  }
-  
-  .mat-list-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0 10px;
-    position: relative;
-    height: inherit;
-    font-family: initial;
-    font-size: 1.1rem;
-    font-weight: 900;
-  }
-  
-  .mat-toolbar-single-row {
-    display: flex;
-    box-sizing: border-box;
-    padding: 2px 19px;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    white-space: nowrap;
-    height: 10%;
-  }
-  
-  .header-style {
-    overflow: hidden;
-    // background-color: #fff;
-    padding: 10px 10px 0px;
-    margin-top: 58lpx;
-    display: flex;
-    margin-bottom: 1rem;
-  }
-  
-  .head_left {
-    width: 95%;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-  }
-  
-  .header-right {
-    margin: 0 66rem;
-  }
-  
-  .font-style {
-    font-size: 1.4rem;
-    font-weight: 600;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  .btn-primary {
-    background-color: #f8f9fa;
-    border: 1px solid green;
-    border-radius: 0.6em;
-    color: green;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 900;
-    font-size: 1rem;
-  }
-  
-  .btn-primary:hover {
-    color: #fff;
-    background-color: green;
-    border-color: green;
-  }
-  .mat-list-base .mat-list-item:hover
-  {
-  color: #ffffff;
-  }
-  
-  //   .mat-toolbar.mat-primary {
-  //     background: green;
-  //     color: #fff;
-  // }
-  .example-sidenav {
-    background-color:rgb(171 213 180 / 96%);
-    color: #ffffff;
-    z-index: 1;
-    position: fixed;
-    top: 73px;
-  }
-  
-  .content-container {
-    margin-left: 250px;
-    padding-top: 64px;
-    overflow-y: auto;
-    max-height: calc(100vh - 64px);
-  }
-  
-  .dark-mode {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .content-container.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-  }
-  
-  .example-toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-    color: #fff;
-    background-color: green;
-  }
-
-.toolbar{
-  background-color: green;
-  color: white;
-}
-.gap{
-  flex: 1 1 auto;
-}
-.example-container {
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
-.span-list-item{
-  padding-bottom: 10px;
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
-.nav-menu-button{
-  margin-left: 70%;
-  margin-top: 10px;
-}
-.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
- 
-  margin: 0;
+.example-app-name {
+  color: #fff;
   font-family: initial;
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 900;
+}
+.full-width {
+  width: 100%;
+}
+.mat-list-base {
+  padding-top: 0px;
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.menu-button {
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+}
+.menu-button.rotated {
+  transform: rotate(180deg);
+}
+
+.submenu {
+  overflow-y: hidden;
+  transition: transform 300ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-left: 30px;
+}
+
+.submenu.expanded {
+  transform: scaleY(1);
+}
+
+.mat-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+  position: relative;
+  height: inherit;
+  font-family: initial;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 2px 19px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  height: 10%;
+}
+
+.header-style {
+  overflow: hidden;
+  // background-color: #fff;
+  padding: 30px 10px 0px;
+  margin-top: 58lpx;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.head_left {
+  width: 95%;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+.header-right {
+  margin: 0 66rem;
+}
+
+.font-style {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.btn-primary {
+  background-color: #f8f9fa;
+  border: 1px solid green;
+  border-radius: 0.6em;
+  color: green;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: green;
+  border-color: green;
+}
+.mat-list-base .mat-list-item:hover
+{
+color: #ffffff;
+}
+
+//   .mat-toolbar.mat-primary {
+//     background: green;
+//     color: #fff;
+// }
+.example-sidenav {
+  background-color:rgb(171 213 180 / 96%);
+  color: #ffffff;
+  z-index: 1;
+  position: fixed;
+  top: 73px;
+}
+
+.content-container {
+  margin-left: 350px;
+  padding-top: 74px;
+  overflow-y: auto;
+  max-height: calc(100vh - 64px);
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.content-container.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.example-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  color: #fff;
+  background-color: green;
+}
+
+.toolbar{
+background-color: green;
+color: white;
+}
+.gap{
+flex: 1 1 auto;
+}
+
+.span-list-item{
+padding-bottom: 10px;
+}
+.nav-menu-button{
+margin-left: 70%;
+margin-top: 10px;
+}
+.mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+
+margin: 0;
+font-family: initial;
+font-size: 1.5rem;
+font-weight: 800;
 }

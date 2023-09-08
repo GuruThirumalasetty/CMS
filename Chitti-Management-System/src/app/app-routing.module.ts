@@ -6,9 +6,18 @@ import { MasterChittiListComponent } from './Admin-Pages/master-chitti-list/mast
 import { DasboardComponent } from './dasboard/dasboard.component';
 
 const routes: Routes = [
-  {path:"",component:LoginComponent},
-  {path:"login",component:LoginComponent},
-  {path:"side-nav",component:SideNavComponent},
+  {
+    path:"",
+    component:LoginComponent
+  },
+  {
+    path:"login",
+    component:LoginComponent
+  },
+  {
+    path:"side-nav",
+    component:SideNavComponent
+  },
   {
     path: 'dashboard',
     component: SideNavComponent,
