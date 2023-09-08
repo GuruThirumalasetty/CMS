@@ -2,15 +2,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
 <mat-card class="matcard-bg-color">
-      <mat-dialog-actions style="float: right;">
+      <mat-dialog-actions style="text-align: end;">
         <button mat-icon-button [mat-dialog-close]="true" (click)="closedialog()" >
           <mat-icon color="warn" >close</mat-icon>
         </button>
       </mat-dialog-actions>
       <span class="font-style" style="margin: 15px;">Master Chitti Create</span>
-      <mat-card style="margin: 1rem;" class="mat-card-bgs">
-      <div  fxLayout.xs="row" fxLayoutGap="1rem" style="margin-left: 36px;">
-        <div fxLayout="row" fxFlex="100" fxLayout.xs="column" fxLayoutGap="20px" >
+      <mat-card style="margin: 20px;" class="mat-card-bgs">
+      <div  fxLayout.xs="row" fxLayoutGap="1rem" style="margin-left: 36px;margin-top: 20px;">
+        <div fxLayout="row" fxFlex="100" fxLayout.xs="column" fxLayoutGap="0px" >
             <mat-form-field fxFlex="50" class="example-form-field" appearance="outline" >
                 <mat-label>Chitti Type</mat-label>
                     <mat-select value="value" class="mat-option-style-select"  (selectionChange)="chittiTypeChange($event.value)" value="value">
@@ -24,7 +24,7 @@
     </div>
 
       <mat-card style="margin: 2rem;" class="mat-card-bgs" *ngIf="CompanyChitti">
-            <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="2rem" >
+            <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="2rem" style="margin-top: 1rem;margin: 1rem;" >
                 <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                     <mat-label>Chitti Name</mat-label>
                     <input matInput  type="text" class="input-typing-style" 
@@ -97,7 +97,7 @@
             </div>
       </mat-card>
    
-      <div align="center" *ngIf="submit">
+      <div align="center" *ngIf="submit" style="margin: 0 0 1rem;">
         <button mat-raised-button class="btn-primary" >Submit </button>
       </div>
     </mat-card>
