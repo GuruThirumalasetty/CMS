@@ -23,7 +23,7 @@ export class LoginComponent {
       const password = this.loginForm.value.password;
   
       if (this.authService.login(username, password)) {
-        this.router.navigate(['/side-nav']); 
+        this.router.navigate(['/dashboard']); 
       } else {
        
       }
