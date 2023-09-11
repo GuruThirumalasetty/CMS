@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CustomerChittiListComponent } from '../customer-chitti-list.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customer-registration',
@@ -12,5 +14,6 @@ export class CustomerRegistrationComponent {
     this.showPassword = !this.showPassword;
     console.log("this.showPassword", this.showPassword)
   }
+  constructor(private dialogRef : MatDialogRef<CustomerChittiListComponent>){}
 
 }
