@@ -1,20 +1,24 @@
-
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fec810" type="ball-scale-multiple">
+  <span class="loader"></span>
+</ngx-spinner>
 <mat-card >
-   
-    <mat-card class="matcard-bg-color">
-      <span class="font-style">Customers List</span>
+    <mat-card class="matcard-bg-color custom-card">
+      <!-- <span class="font-style">Customers List</span> -->
+      <h1 class="font-style" >Customers List<span style="background-image: url('../../../assets/image/icons8-group-48.png');  background-repeat: no-repeat;
+        background-position: left;background-size: 35px; padding-left: 3rem;padding-top: 5px;margin: 0 10px;"></span></h1>
       <div class="header-style">
           <div class="head_left">
               <input class="mainLoginInput" type="text"  placeholder=" Search . . . ." />
               &nbsp;<mat-icon class="searchbutton">search</mat-icon> 
           </div>
           <div class="header-right" >
-            <button mat-raised-button class="btn-primary" (click)="addNew()">AddNew
-            </button>
+            <!-- <button mat-raised-button class="btn-primary" (click)="addNew()">AddNew
+            </button> -->
+            <button mat-raised-button class="btn-primary" [disabled]="isLoading" (click)="addNew()"> {{button}}</button>
           </div>
         </div>
-    <!-- </mat-card>
-    <mat-card class="matcard-bg-color" > -->
+   
+    <mat-card class="matcard-bg-color custom-card" >
       <table  mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="id">
           <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>

@@ -29,9 +29,9 @@ import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/
 import { MasterChittiCreateComponent } from './Admin-Pages/master-chitti-list/master-chitti-create/master-chitti-create.component';
 import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-list/customer-registration/customer-registration.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -68,11 +68,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
-
-    NgxSpinnerModule,
     MatTooltipModule,
-   FlexLayoutModule
-    FlexLayoutModule,
+   FlexLayoutModule,
+   NgxSpinnerModule,
     HttpClientModule
   ],
   providers: [],

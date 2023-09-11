@@ -1,64 +1,4 @@
 .header-style {
-
-    overflow: hidden;
-    // background-color: #fff;
-    padding: 10px 10px 0px;
-    margin-top: 58lpx;
-    display: flex;
-    margin-bottom: 1rem;
-  }
-  
-  .head_left {
-    width: 95%;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-  }
-  .font-style {
-    font-size: 1.5rem;
-    font-weight: 600;
-    font-family: 'Times New Roman', Times, serif;
-    margin: 10px 10px 0;
-  }
-  .custom-card {
-    margin: 15px;
-    border-radius: 4px; /* Rounded corners */
-    overflow: hidden; /* Ensure content does not protrude beyond the rounded corners */
-  }
-  mat-card[_ngcontent-ng-c2924176444] {
-    box-shadow: none !important;
-    border-radius: 4px;
-    background: #26d01d0d;
-    border: #42424242 solid 1px;
-}
-// mat-paginator{
-//   box-shadow: none !important;
-//   border-radius: 4px;
-//   background: #26d01d0d;
-//   border: #42424242 solid 1px;
-//   color: white;
-// }
-  .mat-mdc-select-value-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: initial;
-}
-  .btn-primary {
-    background-color: #f8f9fa;
-    border: 1px solid green;
-    border-radius: 0.6em;
-    color: green;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 900;
-    font-size: 1rem;
-  }
-  
-  .btn-primary:hover {
-    color: #fff;
-    background-color: green;
-    border-color: green;
-  }
-  
   overflow: hidden;
   // background-color: #fff;
   padding: 10px 10px 0px;
@@ -83,6 +23,20 @@
   border-radius: 4px; /* Rounded corners */
   overflow: hidden; /* Ensure content does not protrude beyond the rounded corners */
 }
+mat-card[_ngcontent-ng-c2924176444] {
+  box-shadow: none !important;
+  border-radius: 4px;
+  background: rgba(38, 208, 29, 0.0509803922);
+  border: rgba(66, 66, 66, 0.2588235294) solid 1px;
+  
+}
+// mat-paginator{
+//   box-shadow: none !important;
+//   border-radius: 4px;
+//   background: #26d01d0d;
+//   border: #42424242 solid 1px;
+//   color: white;
+// }
 .mat-mdc-select-value-text {
   white-space: nowrap;
   overflow: hidden;
@@ -104,7 +58,6 @@
   background-color: green;
   border-color: green;
 }
-
 
 .noData-style {
   font-size: 1.5rem;
@@ -157,8 +110,11 @@ mat-card {
   box-shadow: none !important;
   border-radius: 4px;
   border: #dee2e6 solid 1px;
+  background: rgba(38, 208, 29, 0.0509803922);
+  border: rgba(66, 66, 66, 0.2588235294) solid 1px;
 
 }
+
 
 mat-card.mat-card.mat-focus-indicator.ng-star-inserted {
   border: none;
@@ -184,69 +140,17 @@ padding-top: 2px;
 color:black;
 }
 .searchbutton{
-  padding: 4px;
+  padding: 0px;
   font-size: 31px;
   font-weight: 900;
-  margin-bottom: -9px;
 }
 .matcard-bg-color {
   box-shadow: none !important;
   border-radius: 2px;
   border: #c8d4e2 solid 1px;
-  background: rgba(221, 223, 230, 0.27);
+  background: rgba(38, 208, 29, 0.0509803922);
 }
 .mat-paginator-page-size-label {
-    margin: 0 4px;
-    font-family: initial;
-    font-size: 12px;
-    font-weight: 900;
-  }
-  .mat-select-value-text {
-    white-space: nowrap;
-    font-size: 12px;
-    font-weight: 900;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .loader {
-    transform: translateZ(1px);
-  }
-  .loader:after {
-    content: '$';
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    text-align: center;
-    line-height:40px;
-    font-size: 32px;
-    font-weight: bold;
-    background: #FFD700;
-    color: #DAA520;
-    border: 4px double ;
-    box-sizing: border-box;
-    box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
-    animation: coin-flip 4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-  }
-  @keyframes coin-flip {
-    0%, 100% {
-      animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
-    }
-    0% {
-      transform: rotateY(0deg);
-    }
-    50% {
-      transform: rotateY(1800deg);
-      animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
-    }
-    100% {
-      transform: rotateY(3600deg);
-    }
-  }
-  ::ng-deep.cdk-overlay-dark-backdrop {
-    background: rgb(0 0 0 / 69%);
-}
-
   margin: 0 4px;
   font-family: initial;
   font-size: 12px;
@@ -259,4 +163,41 @@ color:black;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.loader {
+  transform: translateZ(1px);
+}
+.loader:after {
+  content: '$';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  text-align: center;
+  line-height:40px;
+  font-size: 32px;
+  font-weight: bold;
+  background: #FFD700;
+  color: #DAA520;
+  border: 4px double ;
+  box-sizing: border-box;
+  box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
+  animation: coin-flip 4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes coin-flip {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+::ng-deep.cdk-overlay-dark-backdrop {
+  background: rgb(0 0 0 / 69%);
+}

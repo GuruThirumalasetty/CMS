@@ -13,8 +13,7 @@ export class LoginComponent {
   loginForm: FormGroup = new FormGroup({});
 
   showLoginForm: boolean = false;
-  constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService) { }
-
+  
   constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService,private cmsService:CmsService) { }
 
   ngOnInit(): void {
@@ -23,6 +22,12 @@ export class LoginComponent {
       password: ['']
     });
   }  
+
+
+  toggleLoginForm() {
+    this.showLoginForm = !this.showLoginForm;
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
@@ -36,21 +41,4 @@ export class LoginComponent {
     }
   }
 
-  toggleLoginForm() {
-    this.showLoginForm = !this.showLoginForm;
-
-  adminLogin(){
-    this.cmsService.getAdminLogin().subscribe({
-      next:(res)=>{
-        if (this.loginForm.valid) {
-          const username = this.loginForm.value.username;
-          const password = this.loginForm.value.password;
-          if(username == res[0].username && password === res[0].password){
-            this.router.navigate(['/dashboard']);
-            localStorage.setItem('UserName',username);
-          }
-        }
-      }
-    })
-  }
 }
