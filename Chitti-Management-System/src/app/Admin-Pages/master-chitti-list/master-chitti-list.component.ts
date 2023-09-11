@@ -4,6 +4,7 @@ import { MasterChittiCreateComponent } from './master-chitti-create/master-chitt
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CmsService } from 'src/app/Services/cms.service';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -16,12 +17,20 @@ export class MasterChittiListComponent {
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
+
+  button = 'AddNew';
+  isLoading = false;
+  displayedColumns: string[] = ['id', 'chittitype', 'chittiname', 'noofmembers', 'startfrom','endfrom', 'Monthlyamount', 'actions'];
+
+  constructor(private router: Router,private dialog:Dialog,private spinner: NgxSpinnerService) { }
+
   isLoading: boolean = false;
   displayedColumns: string[] = ['id', 'chittitype', 'chittiname', 'noofmembers', 'startfrom','endto', 'Monthlyamount', 'actions'];
 
   constructor(private router: Router,
     private dialog:MatDialog,
     private cmsService:CmsService) { }
+
   ngOnInit(): void {
     this.getChittiDetails();
   }
@@ -34,8 +43,15 @@ export class MasterChittiListComponent {
   }
   addNew() {
     this.isLoading = true;
+
+    this.button = ' Wait';
+    this.spinner.show();
+
+
     setTimeout(() => {
+      this.spinner.show();
       this.isLoading = false;
+      this.button = ' AddNew';
       this.dialog.open(MasterChittiCreateComponent,{
         disableClose: true,
       width: '80%',
@@ -45,7 +61,8 @@ export class MasterChittiListComponent {
           this.getChittiDetails();
         }
       })
-    }, 500)
+      this.spinner.hide()
+    }, 1000 )
   }
   editChittiDetails(details:any){
     this.dialog.open(MasterChittiCreateComponent,{

@@ -11,7 +11,12 @@ import { CmsService } from 'src/app/Services/cms.service';
 })
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({});
+
+  showLoginForm: boolean = false;
+  constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService) { }
+
   constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService,private cmsService:CmsService) { }
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: [''],
@@ -30,6 +35,10 @@ export class LoginComponent {
       }
     }
   }
+
+  toggleLoginForm() {
+    this.showLoginForm = !this.showLoginForm;
+
   adminLogin(){
     this.cmsService.getAdminLogin().subscribe({
       next:(res)=>{

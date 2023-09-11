@@ -1,5 +1,81 @@
-
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fec810" type="ball-scale-multiple">
+  <span class="loader"></span>
+</ngx-spinner>
 <mat-card >
+    <mat-card class="matcard-bg-color"  class="custom-card">
+      <h1 class="font-style" >Master Chitti List<span style="background-image: url('../../../assets/image/icons8-group-48.png');  background-repeat: no-repeat;
+        background-position: left;background-size: 35px; padding-left: 3rem;padding-top: 5px;margin: 0 10px;"></span></h1>
+      
+      <div class="header-style">
+          <div class="head_left">
+              <input class="mainLoginInput" type="text"  placeholder=" Search . . . ." />
+              &nbsp;<mat-icon class="searchbutton">search</mat-icon> 
+          </div>
+          <div class="header-right" >
+            <!-- <button mat-raised-button class="btn-primary" (click)="addNew()">AddNew
+            </button> -->
+            <button mat-raised-button class="btn-primary" [disabled]="isLoading" (click)="addNew()"> {{button}}</button>
+          </div>
+        </div>
+   
+    <mat-card class="matcard-bg-color" class="custom-card">
+      <table  mat-table  [dataSource]="dataSource" class="mat-elevation-z8" >
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="chittitype">
+          <mat-header-cell *matHeaderCellDef >Chitti Type</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.chittitype}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="chittiname">
+          <mat-header-cell *matHeaderCellDef>Chitti Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.chittiname}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="noofmembers">
+          <mat-header-cell *matHeaderCellDef>No of Members</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.noofmembers}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="noofmonths">
+          <mat-header-cell *matHeaderCellDef>No of Months</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.noofmonths}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="startfrom">
+          <mat-header-cell *matHeaderCellDef>Start From</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.startfrom}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="endfrom">
+          <mat-header-cell *matHeaderCellDef>End From</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.endfrom}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Monthlyamount">
+          <mat-header-cell *matHeaderCellDef>MonthlyAmount</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.Monthlyamount}} </mat-cell>
+        </ng-container>
+        <!-- <ng-container matColumnDef="company">
+          <mat-header-cell *matHeaderCellDef>Company Chit Month</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.company}} </mat-cell>
+        </ng-container> -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+          <mat-cell *matCellDef="let row" >
+            <button mat-icon-button color="primary" matTooltip="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" matTooltip="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+            
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <tr class="mat-row no-data-row"  *matNoDataRow>
+        <td class="mat-cell"><h2 class="noData-style">No Data Found</h2></td>
+       </tr>
+      </table> 
+    </mat-card>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" ></mat-paginator>
   <mat-card class="matcard-bg-color"  class="custom-card">
     <span class="font-style">Master Chitti List</span>
     <div class="header-style">
