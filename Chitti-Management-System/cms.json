@@ -6,14 +6,92 @@
       "password": "koti@123"
     }
   ],
-  "comments": [
+  "master-chitti-create": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "chittiType": "CompanyChitti",
+      "chittiName": "chitti name",
+      "noOfMembers": "20",
+      "noOfMonths": "20",
+      "companyChittiMonth": "2023-08-31T18:30:00.000Z",
+      "startFrom": "2023-08-31T18:30:00.000Z",
+      "endTo": "2023-09-02T18:30:00.000Z",
+      "monthlyAmount": "10000",
+      "chittiValue": "200000",
+      "amountAfterLifting": "190000",
+      "amountToCompany": "10000",
+      "deduction": "",
+      "minBidAmount": "",
+      "bidDate": "",
+      "id": 1
+    },
+    {
+      "chittiType": "FixedChitti",
+      "chittiName": "fixed chitti name",
+      "noOfMembers": "5",
+      "noOfMonths": "20",
+      "companyChittiMonth": "2023-09-08T18:30:00.000Z",
+      "startFrom": "2023-09-09T18:30:00.000Z",
+      "endTo": "2023-09-10T18:30:00.000Z",
+      "monthlyAmount": "5000",
+      "chittiValue": "25000",
+      "amountAfterLifting": "20000",
+      "amountToCompany": "",
+      "deduction": "fghffsdg",
+      "minBidAmount": "",
+      "bidDate": "",
+      "id": 2
+    },
+    {
+      "chittiType": "CompanyChitti",
+      "chittiName": "companychitti",
+      "noOfMembers": "10",
+      "noOfMonths": "5",
+      "companyChittiMonth": "2023-09-07T18:30:00.000Z",
+      "startFrom": "2023-09-18T18:30:00.000Z",
+      "endTo": "2030-09-09T18:30:00.000Z",
+      "monthlyAmount": "10000",
+      "chittiValue": "1000000",
+      "amountAfterLifting": "94000",
+      "amountToCompany": "6000",
+      "deduction": "",
+      "minBidAmount": "",
+      "bidDate": "",
+      "id": 3
+    },
+    {
+      "chittiType": "CompanyChitti",
+      "chittiName": "Local Chitti",
+      "noOfMembers": "10",
+      "noOfMonths": "10",
+      "companyChittiMonth": "2023-09-13T18:30:00.000Z",
+      "startFrom": "2023-09-12T18:30:00.000Z",
+      "endTo": "2023-09-18T18:30:00.000Z",
+      "monthlyAmount": "20000",
+      "chittiValue": "2000000",
+      "amountAfterLifting": "195000",
+      "amountToCompany": "5000",
+      "deduction": "",
+      "minBidAmount": "",
+      "bidDate": "",
+      "id": 4
+    },
+    {
+      "chittiType": "CompanyChitti",
+      "chittiName": "koti anna",
+      "noOfMembers": "3",
+      "noOfMonths": "6",
+      "companyChittiMonth": "2023-09-12T18:30:00.000Z",
+      "startFrom": "2023-09-18T18:30:00.000Z",
+      "endTo": "2023-09-05T18:30:00.000Z",
+      "monthlyAmount": "15000",
+      "chittiValue": "150000",
+      "amountAfterLifting": "100000",
+      "amountToCompany": "50000",
+      "deduction": "",
+      "maxBidAmount": "",
+      "minBidAmount": "",
+      "bidDate": "",
+      "id": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

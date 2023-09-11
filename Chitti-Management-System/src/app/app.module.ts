@@ -30,6 +30,7 @@ import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/
 import { MasterChittiCreateComponent } from './Admin-Pages/master-chitti-list/master-chitti-create/master-chitti-create.component';
 import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-list/customer-registration/customer-registration.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { DasboardComponent } from './dasboard/dasboard.component';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
-   FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
