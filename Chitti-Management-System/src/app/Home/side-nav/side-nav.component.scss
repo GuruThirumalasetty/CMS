@@ -69,7 +69,7 @@
   .header-style {
     overflow: hidden;
     // background-color: #fff;
-    padding: 10px 10px 0px;
+    padding: 30px 10px 0px;
     margin-top: 58lpx;
     display: flex;
     margin-bottom: 1rem;
@@ -116,20 +116,59 @@
   //     color: #fff;
   // }
   .example-sidenav {
-    background-color:rgb(171 213 180 / 96%);
+    background-color:rgb(161 226 175 / 96%);
     color: #ffffff;
     z-index: 1;
     position: fixed;
-    top: 73px;
+    top: 65px;
   }
   
   .content-container {
-    margin-left: 250px;
-    padding-top: 64px;
+    margin-left: 350px;
+    padding-top: 74px;
     overflow-y: auto;
     max-height: calc(100vh - 64px);
   }
-  
+  .span-list-item {
+    padding-bottom: 10px;
+    font-family: initial;
+    font-size: 1.2rem;
+    font-weight: 500;
+    //color: white;
+}
+.span-list-item:hover {
+  color: white;
+}
+.example-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+.app-container {
+  height: 90%;
+  margin: 0;
+}  
+.app-sidenav {
+  width: 230px;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+} 
+.account-icon {
+  margin-left: auto; /* Push the account icon to the right */
+}
+
+mat-nav-list {
+  margin: 0;
+  padding: 2px 0;
+  list-style-type: none;
+}
   .dark-mode {
     background-color: #333;
     color: #fff;
@@ -157,10 +196,7 @@
 .gap{
   flex: 1 1 auto;
 }
-.example-container {
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
+
 .span-list-item{
   padding-bottom: 10px;
 }

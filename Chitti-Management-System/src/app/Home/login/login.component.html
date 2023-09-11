@@ -20,6 +20,16 @@
     
   <!--  -->
   <div class="container">
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h3 style="color: #fff; font-family: 'Times New Roman', Times, serif;">Login Here</h3>
+      <label for="username" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Username</label>
+      <input matInput placeholder="Username" formControlName="username" name="username" required style="color: #fff;">
+      <label for="password" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Password</label>
+      <input matInput placeholder="Password" type="password" formControlName="password" name="password" required style="color: #fff;">
+      <button>Log In</button>
+     
+  </form> -->
+  <div *ngIf="showLoginForm" >
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h3 style="color: #fff; font-family: 'Times New Roman', Times, serif;">Login Here</h3>
       <label for="username" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Username</label>
@@ -28,7 +38,24 @@
       <input matInput placeholder="Password" type="password" formControlName="password" name="password" required style="color: #fff;">
       <button>Log In</button>
      
-  </form>
+  </form> 
+    <!-- <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" name="username" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form> -->
+  </div>
+  
+
+  <div>
+    <button (click)="toggleLoginForm()" class="open-form-button">Open Login Form</button>
+  </div>
   </div>
 
   

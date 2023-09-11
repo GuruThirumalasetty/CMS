@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({});
+  showLoginForm: boolean = false;
   constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService) { }
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -28,5 +29,8 @@ export class LoginComponent {
        
       }
     }
+  }
+  toggleLoginForm() {
+    this.showLoginForm = !this.showLoginForm;
   }
 }
