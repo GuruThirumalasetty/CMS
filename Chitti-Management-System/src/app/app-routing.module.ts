@@ -5,6 +5,7 @@ import { LoginComponent } from './Home/login/login.component';
 import { MasterChittiListComponent } from './Admin-Pages/master-chitti-list/master-chitti-list.component';
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { authGuardGuard } from './Guard/auth-guard.guard';
+import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/customer-chitti-list.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,14 @@ const routes: Routes = [
     canActivate:[authGuardGuard],
     children: [
       { path: '', component:MasterChittiListComponent  }
+     
+    ]
+  },
+  {
+    path: 'customer-list',
+    component: SideNavComponent,
+    children: [
+      { path: '', component:CustomerChittiListComponent  }
      
     ]
   }

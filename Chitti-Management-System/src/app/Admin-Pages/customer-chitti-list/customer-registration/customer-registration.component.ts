@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-registration.component.scss']
 })
 export class CustomerRegistrationComponent {
+  showPassword: boolean = false;
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+    console.log("this.showPassword", this.showPassword)
+  }
 
 }
