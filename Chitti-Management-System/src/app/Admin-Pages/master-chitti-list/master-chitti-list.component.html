@@ -76,4 +76,75 @@
       </table> 
     </mat-card>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" ></mat-paginator>
+  <mat-card class="matcard-bg-color"  class="custom-card">
+    <span class="font-style">Master Chitti List</span>
+    <div class="header-style">
+        <div class="head_left">
+            <input class="mainLoginInput" type="text"  placeholder=" Search . . . ." />
+            &nbsp;<mat-icon class="searchbutton">search</mat-icon> 
+        </div>
+        <div class="header-right" >
+          <button mat-raised-button class="btn-primary" (click)="addNew()">AddNew
+          </button>
+        </div>
+      </div>
+ 
+  <mat-card class="matcard-bg-color" class="custom-card">
+    <table  mat-table  [dataSource]="dataSource" class="mat-elevation-z8" >
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="chittitype">
+        <mat-header-cell *matHeaderCellDef >Chitti Type</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.chittiType}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="chittiname">
+        <mat-header-cell *matHeaderCellDef>Chitti Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.chittiName}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="noofmembers">
+        <mat-header-cell *matHeaderCellDef>No of Members</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.noOfMembers}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="noofmonths">
+        <mat-header-cell *matHeaderCellDef>No of Months</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.noOfMonths}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="startfrom">
+        <mat-header-cell *matHeaderCellDef>Start To</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.startFrom | date}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="endto">
+        <mat-header-cell *matHeaderCellDef>End From</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.endTo | date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Monthlyamount">
+        <mat-header-cell *matHeaderCellDef>MonthlyAmount</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.monthlyAmount}} </mat-cell>
+      </ng-container>
+      <!-- <ng-container matColumnDef="company">
+        <mat-header-cell *matHeaderCellDef>Company Chit Month</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.company}} </mat-cell>
+      </ng-container> -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let row" >
+          <button mat-icon-button color="primary" (click)="editChittiDetails(row)">
+            <mat-icon  matTooltip="Edit">edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" matTooltip="Delete" (click)="deleteChittiDetails(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <tr class="mat-row no-data-row"  *matNoDataRow>
+      <td class="mat-cell"><h2 class="noData-style">No Data Found</h2></td>
+     </tr>
+    </table> 
+  </mat-card>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"  class=" mat-paginator-page-size-label mat-mdc-select-value-text mat-select-value-text"></mat-paginator>
 </mat-card>

@@ -31,6 +31,7 @@ import { CustomerRegistrationComponent } from './Admin-Pages/customer-chitti-lis
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -67,9 +68,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatMenuModule,
     MatPaginatorModule,
     MatTableModule,
+
     NgxSpinnerModule,
     MatTooltipModule,
    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

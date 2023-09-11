@@ -23,7 +23,7 @@ export class SideNavComponent {
   }
   logout() {
     //this.userAuthService.logout();
-    this.router.navigate(['/login']); // Redirect to the login page after logout
+    this.router.navigate(['/']); // Redirect to the login page after logout
     localStorage.removeItem('UserName');
   }
   toggleDarkMode() {

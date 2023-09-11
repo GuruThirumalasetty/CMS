@@ -20,6 +20,7 @@
     
   <!--  -->
   <div class="container">
+
     <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h3 style="color: #fff; font-family: 'Times New Roman', Times, serif;">Login Here</h3>
       <label for="username" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Username</label>
@@ -31,6 +32,9 @@
   </form> -->
   <div *ngIf="showLoginForm" >
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <form [formGroup]="loginForm" (ngSubmit)="adminLogin()">
+
       <h3 style="color: #fff; font-family: 'Times New Roman', Times, serif;">Login Here</h3>
       <label for="username" style="color: #fff; font-family: 'Times New Roman', Times, serif;">Username</label>
       <input matInput placeholder="Username" formControlName="username" name="username" required style="color: #fff;">
