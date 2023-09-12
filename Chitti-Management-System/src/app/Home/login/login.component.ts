@@ -13,6 +13,15 @@ export class LoginComponent {
   loginForm: FormGroup = new FormGroup({});
 
   showLoginForm: boolean = false;
+
+  adminREquirement:any = {
+    adminLogin : true,
+    userLogin : false
+  }
+  userRequirement:any = {
+    adminLogin : false,
+    userLogin : true
+  }
   
   constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService,private cmsService:CmsService) { }
 
@@ -28,16 +37,45 @@ export class LoginComponent {
     this.showLoginForm = !this.showLoginForm;
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const username = this.loginForm.value.username;
-      const password = this.loginForm.value.password;
+  // onSubmit() {
+  //   if (this.loginForm.valid) {
+  //     const username = this.loginForm.value.username;
+  //     const password = this.loginForm.value.password;
   
-      if (this.authService.login(username, password)) {
-        this.router.navigate(['/dashboard']); 
-      } else {
+  //     if (this.authService.login(username, password)) {
+  //       this.router.navigate(['/dashboard']); 
+  //     } else {
        
-      }
+  //     }
+  //   }
+  // }
+
+  onSubmit(form:any){
+    if(this.loginForm.valid){
+      this.cmsService.getAdminLogin().subscribe({
+        next:(res)=>{
+          res.map((value:any)=>{
+            if(value.username === form.username && value.password === form.password){
+              localStorage.setItem('UserName',form.username);
+              localStorage.setItem('sidenavRestrictions',JSON.stringify(this.adminREquirement));
+              this.router.navigate(['dashboard']);
+            }
+            else{
+              this.cmsService.getUserLogin().subscribe({
+                next:(res)=>{
+                  res.map((val:any)=>{
+                    if(val.username === form.username && val.password === form.password){
+                      localStorage.setItem('UserName',form.username);
+                      localStorage.setItem('sidenavRestrictions',JSON.stringify(this.userRequirement));
+                      this.router.navigate(['dashboard']);
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
     }
   }
 

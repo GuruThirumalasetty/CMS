@@ -15,16 +15,24 @@ export class SideNavComponent {
   sidenavWidth = 4;
   showSubMenu: boolean = false;
   isDarkMode = false;
+  sidenavRestrictions:any;
+  userLogin:any;
+  adminLogin:any;
 
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.sidenavRestrictions = localStorage.getItem('sidenavRestrictions');
+    this.sidenavRestrictions = JSON.parse(this.sidenavRestrictions);
+    this.userLogin = this.sidenavRestrictions.userLogin;
+    this.adminLogin = this.sidenavRestrictions.adminLogin;
   }
   logout() {
     //this.userAuthService.logout();
     this.router.navigate(['/']); // Redirect to the login page after logout
     localStorage.removeItem('UserName');
+    localStorage.removeItem('sidenavRestrictions');
   }
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
