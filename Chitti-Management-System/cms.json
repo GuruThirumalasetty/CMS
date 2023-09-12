@@ -6,6 +6,18 @@
       "password": "koti@123"
     }
   ],
+  "userLogin": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "user@123"
+    },
+    {
+      "id": 2,
+      "username": "aravind",
+      "password": "aravind@123"
+    }
+  ],
   "master-chitti-create": [
     {
       "chittiType": "CompanyChitti",
@@ -77,20 +89,20 @@
     },
     {
       "chittiType": "CompanyChitti",
-      "chittiName": "koti anna",
+      "chittiName": "Aravind Chitti",
       "noOfMembers": "3",
-      "noOfMonths": "6",
-      "companyChittiMonth": "2023-09-12T18:30:00.000Z",
-      "startFrom": "2023-09-18T18:30:00.000Z",
-      "endTo": "2023-09-05T18:30:00.000Z",
-      "monthlyAmount": "15000",
-      "chittiValue": "150000",
-      "amountAfterLifting": "100000",
-      "amountToCompany": "50000",
-      "deduction": "",
-      "maxBidAmount": "",
-      "minBidAmount": "",
-      "bidDate": "",
+      "noOfMonths": "20",
+      "companyChittiMonth": "2023-09-14T18:30:00.000Z",
+      "startFrom": "2023-09-14T18:30:00.000Z",
+      "endTo": "2023-09-19T18:30:00.000Z",
+      "monthlyAmount": "100000",
+      "chittiValue": "100000",
+      "amountAfterLifting": "500000",
+      "amountToCompany": "22000",
+      "deduction": null,
+      "maxBidAmount": null,
+      "minBidAmount": null,
+      "bidDate": null,
       "id": 5
     },
     {
@@ -110,6 +122,22 @@
       "minBidAmount": "100000",
       "bidDate": "2023-02-01",
       "id": 6
+    }
+  ],
+  "customer-registration":[
+    {
+        "id":1,
+        "customerName" : "Aravind",
+        "phoneNumber" : "9133800412",
+        "emailId" : "aravind@gmail.com",
+        "password" : "aravind@123",
+        "DOB" : "2023-02-02",
+        "gender" : "male",
+        "aadhar" : "123456789123",
+        "panNumber" : "AAAAA1111A",
+        "address" : "Old Bowenpally",
+        "chittiType" : "CompanyChitti",
+        "chittiName" : "Aravind Chitti"
     }
   ]
 }
