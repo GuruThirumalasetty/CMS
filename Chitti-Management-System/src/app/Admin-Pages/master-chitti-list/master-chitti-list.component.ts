@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { CmsService } from 'src/app/Services/cms.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-master-chitti-list',
@@ -64,15 +65,25 @@ export class MasterChittiListComponent {
       this.spinner.hide()
     }, 1000 )
   }
-  editChittiDetails(details:any){
-    this.dialog.open(MasterChittiCreateComponent,{
-      width:'80%',
-      data:details
-    }).afterClosed().subscribe(value=>{
-      if(value === 'Update'){
-        this.getChittiDetails();
+  editChittiDetails(details: any) {
+    Swal.fire({
+      title: 'Do you want to make changes?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.dialog.open(MasterChittiCreateComponent, {
+          width: '80%',
+          data: details,
+        }).afterClosed().subscribe((dialogResult) => {
+          if (dialogResult === 'Update') {
+            this.getChittiDetails();
+          }
+        });
       }
-    })
+    });
   }
 
   deleteChittiDetails(id:number){
