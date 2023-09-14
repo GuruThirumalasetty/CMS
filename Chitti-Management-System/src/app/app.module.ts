@@ -32,6 +32,8 @@ import { DasboardComponent } from './dasboard/dasboard.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ChittiPaymentDetailsComponent } from './Admin-Pages/chitti-payment-details/chitti-payment-details.component';
+import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/chitti-payment-list.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CustomerChittiListComponent,
     MasterChittiCreateComponent,
     CustomerRegistrationComponent,
-    DasboardComponent
+    DasboardComponent,
+    ChittiPaymentDetailsComponent,
+    ChittiPaymentListComponent
   ],
   imports: [
     BrowserModule,

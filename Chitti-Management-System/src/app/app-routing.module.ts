@@ -6,6 +6,7 @@ import { MasterChittiListComponent } from './Admin-Pages/master-chitti-list/mast
 import { DasboardComponent } from './dasboard/dasboard.component';
 import { authGuardGuard } from './Guard/auth-guard.guard';
 import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/customer-chitti-list.component';
+import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/chitti-payment-list.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,14 @@ const routes: Routes = [
     component: SideNavComponent,
     children: [
       { path: '', component:CustomerChittiListComponent  }
+     
+    ]
+  },
+  {
+    path: 'customer-payment-list',
+    component: SideNavComponent,
+    children: [
+      { path: '', component:ChittiPaymentListComponent  }
      
     ]
   }
