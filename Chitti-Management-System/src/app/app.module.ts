@@ -34,6 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ChittiPaymentDetailsComponent } from './Admin-Pages/chitti-payment-details/chitti-payment-details.component';
 import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/chitti-payment-list.component';
+import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
+import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/ch
     CustomerRegistrationComponent,
     DasboardComponent,
     ChittiPaymentDetailsComponent,
-    ChittiPaymentListComponent
+    ChittiPaymentListComponent,
+    MyChittsComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -106,7 +106,16 @@
 			<mat-icon style="background-image: url('../../../assets/image/icons8-person-48\ \(1\).png');
 			background-repeat: no-repeat; background-position: left;background-size: 27px; padding-left: 
 			10px;padding-top: 0px;" matTooltip="Bid Details"></mat-icon>
-			<span class="span-list-item" *ngIf="isExpanded || isShowing">Your Chitti Details</span>
+			<span class="span-list-item" *ngIf="isExpanded || isShowing">My chits</span>
+		</mat-list-item>
+	</mat-nav-list>
+	
+	<mat-nav-list *ngIf="userLogin">
+		<mat-list-item routerLink="/fggdf">
+			<mat-icon style="background-image: url('../../../assets/image/icons8-home-32.png'); 
+			background-repeat: no-repeat; background-position: left;background-size: 27px; padding-left: 
+			10px;padding-top: 0px;" matTooltip="Master Chitti Details"></mat-icon>
+			<span class="span-list-item" *ngIf="isExpanded || isShowing">Previous payment details</span>
 		</mat-list-item>
 	</mat-nav-list>
 	<mat-nav-list *ngIf="userLogin">
@@ -114,10 +123,17 @@
 			<mat-icon style="background-image: url('../../../assets/image/icons8-home-32.png'); 
 			background-repeat: no-repeat; background-position: left;background-size: 27px; padding-left: 
 			10px;padding-top: 0px;" matTooltip="Master Chitti Details"></mat-icon>
-			<span class="span-list-item" *ngIf="isExpanded || isShowing">Payment Details</span>
+			<span class="span-list-item" *ngIf="isExpanded || isShowing">Pay Now</span>
 		</mat-list-item>
 	</mat-nav-list>
-	  
+	<mat-nav-list *ngIf="userLogin">
+		<mat-list-item routerLink="/fggdf">
+			<mat-icon style="background-image: url('../../../assets/image/icons8-home-32.png'); 
+			background-repeat: no-repeat; background-position: left;background-size: 27px; padding-left: 
+			10px;padding-top: 0px;" matTooltip="Master Chitti Details"></mat-icon>
+			<span class="span-list-item" *ngIf="isExpanded || isShowing">Profile</span>
+		</mat-list-item>
+	</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content class="content-container" [ngClass]="{'dark-mode': isDarkMode}">
 	   <router-outlet></router-outlet>
