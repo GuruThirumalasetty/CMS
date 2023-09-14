@@ -24,41 +24,41 @@
         </div>
         <mat-card style="margin: 1rem;" class="mat-card-bgs" *ngIf="CompanyChitti">
                 <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="1rem" style="margin-top: 0.5rem;margin: 1rem;" >
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Chitti Name</mat-label>
                         <input matInput  type="text" class="input-typing-style" 
                             placeholder="Please Enter Chitti Name" formControlName="chittiName">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>No of Members</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter No of Members" formControlName="noOfMembers">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>No of Months</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter No of Months" formControlName="noOfMonths">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="minbid">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" *ngIf="minbid">
                         <mat-label>Min Bid Amount</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Min Bid Amount" formControlName="minBidAmount">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Company Chitti Month</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="companyChittiMonth" placeholder="MM/DD/YYYY">
                         <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Start From</mat-label>
                         <input matInput [matDatepicker]="picker1" formControlName="startFrom" placeholder="MM/DD/YYYY">
                         <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
                         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>End From</mat-label>
                         <input matInput [matDatepicker]="picker2" formControlName="endTo" placeholder="MM/DD/YYYY">
                         <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
@@ -66,36 +66,36 @@
                         <mat-datepicker #picker2></mat-datepicker>
                     </mat-form-field>
                     
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Monthly Amount</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Monthly Amount" formControlName="monthlyAmount">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="maxbid">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" *ngIf="maxbid">
                         <mat-label>Max Bid Amount</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Max Bid Amount" formControlName="maxBidAmount">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Chitti Value</mat-label>
                         <input matInput  type="text" class="input-typing-style" 
                             placeholder="Please Enter Chitti Value" formControlName="chittiValue">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="Deduction">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" *ngIf="Deduction">
                         <mat-label>Deduction(Commision)</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Deduction" formControlName="deduction">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Amount After Lifiting</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Amount After Lifiting" formControlName="amountAfterLifting">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="amounttocompany">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" *ngIf="amounttocompany">
                         <mat-label> Amount To Company</mat-label>
                         <input matInput type="text" class="input-typing-style" placeholder="Please Enter Amount To Company" formControlName="amountToCompany">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" *ngIf="biddate">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" *ngIf="biddate">
                         <mat-label>Bid Date</mat-label>
                         <input matInput  type="date" class="input-typing-style"
                             placeholder="Please Select Bid date" formControlName="bidDate">

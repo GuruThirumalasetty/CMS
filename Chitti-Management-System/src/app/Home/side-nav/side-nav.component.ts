@@ -18,15 +18,18 @@ export class SideNavComponent {
   sidenavRestrictions:any;
   userLogin:any;
   adminLogin:any;
+  userName:any;
 
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    debugger
     this.sidenavRestrictions = localStorage.getItem('sidenavRestrictions');
     this.sidenavRestrictions = JSON.parse(this.sidenavRestrictions);
     this.userLogin = this.sidenavRestrictions.userLogin;
     this.adminLogin = this.sidenavRestrictions.adminLogin;
+    this.userName = localStorage.getItem('UserName')
   }
   logout() {
     //this.userAuthService.logout();
