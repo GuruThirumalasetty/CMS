@@ -18,8 +18,15 @@ export class CustomerRegistrationComponent {
     this.showPassword = !this.showPassword;
   }
   constructor(private dialogRef : MatDialogRef<CustomerChittiListComponent>,
-    private cmsService:CmsService,
-    private formBuilder:FormBuilder){}
+    private cmsService:CmsService,private formbuilder:FormBuilder,
+    private formBuilder:FormBuilder){
+      // this.customerRegistrationForm = this.formbuilder.group({
+      //   chittiName : new FormControl(''),
+      //   password: new FormControl(''),
+      //   chittiType:new FormControl(''),
+      // })
+    }
+   
 
     ngOnInit():void{
       this.customerRegistrationForm = this.formBuilder.group({
@@ -27,7 +34,7 @@ export class CustomerRegistrationComponent {
         phoneNumber : new FormControl(''),
         emailId : new FormControl(''),
         password : new FormControl(''),
-        //confirmPassword : new FormControl(''),
+        confirmPassword : new FormControl(''),
         DOB : new FormControl(''),
         gender : new FormControl(''),
         aadhar : new FormControl(''),
@@ -60,5 +67,9 @@ export class CustomerRegistrationComponent {
     else{
       return;
     }
+  }
+  closedialog(){
+    this.customerRegistrationForm.reset();
+    this.dialogRef.close();
   }
 }
