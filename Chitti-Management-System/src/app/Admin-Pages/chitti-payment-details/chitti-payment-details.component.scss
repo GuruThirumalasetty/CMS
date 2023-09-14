@@ -1,0 +1,81 @@
+.header-style {
+    overflow: hidden;
+    // background-color: #fff;
+    padding: 10px 10px 0px;
+    margin-top: 58lpx;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .head_left {
+    width: 95%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+  .font-style {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color:green;
+  }
+  
+  :host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    color: black;
+  }
+  .mat-card-bgs{
+    box-shadow: none !important;
+    border-radius: 4px;
+    border: #b5c5d3 solid 1.5px;
+    background:rgb(8 40 155 / 5%);
+    
+  }
+  mat-label{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.04rem;
+    font-weight: 500;
+    color: green;
+   }
+   mat-error {
+    color: #f44336;
+    font-family: initial;
+    font-size: 14px;
+   }
+  .input-typing-style{
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+   }
+  .btn-primary {
+    background-color: #f8f9fa;
+    border: 1px solid green;
+    border-radius: 0.6em;
+    color: green;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 1rem;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: green;
+    border-color: green;
+  }
+.outer{
+    margin: 10px;
+  }
+
+  mat-card{
+    border: rgba(0,0,0,.26) solid 1px;
+  }
+  .mat-option-style-select{
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    }
+    .mat-option-style {
+      font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+  }
