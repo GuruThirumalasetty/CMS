@@ -36,6 +36,7 @@ import { ChittiPaymentDetailsComponent } from './Admin-Pages/chitti-payment-deta
 import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/chitti-payment-list.component';
 import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
 import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -77,9 +78,10 @@ import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component
     MatPaginatorModule,
     MatTableModule,
     MatTooltipModule,
-   FlexLayoutModule,
-   NgxSpinnerModule,
-    HttpClientModule
+    FlexLayoutModule,
+    NgxSpinnerModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

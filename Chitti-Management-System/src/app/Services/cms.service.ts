@@ -11,6 +11,12 @@ export class CmsService {
   getAdminLogin(){
     return this.http.get<any>("http://localhost:3000/adminLogin");
   }
+  postUserLogin(data:any){
+    return this.http.post<any>("http://localhost:3000/userLogin",data);
+  }
+  deleteUserLogin(id:number){
+    return this.http.delete<any>("http://localhost:3000/userLogin/"+id);
+  }
   getUserLogin(){
     return this.http.get<any>("http://localhost:3000/userLogin");
   }
@@ -31,9 +37,12 @@ export class CmsService {
     return this.http.get<any>("http://localhost:3000/customer-registration");
   }
   postCustomerRegistrationDetails(data:any){
-    return this.http.post<any>("getCustomerRegistrationDetails",data);
+    return this.http.post<any>("http://localhost:3000/customer-registration",data);
   }
   putCustomerRegistrationDetails(data:any,id:number){
-    return this.http.put<any>("getCustomerRegistrationDetails"+id,data);
+    return this.http.put<any>("http://localhost:3000/customer-registration/"+id,data);
+  }
+  deleteCustomerRegistrationDetails(id:number){
+    return this.http.delete<any>("http://localhost:3000/customer-registration/"+id);
   }
 }
