@@ -82,3 +82,21 @@
   .submit-btn{
     margin-bottom: 20px;
   }
+  .btn-primary {
+    background-color: #f8f9fa;
+    border: 1px solid green;
+    border-radius: 0.6em;
+    color: green;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 1rem;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: green;
+    border-color: green;
+  }
+  mat-form-field{
+    margin-left: 1.2px;
+  }

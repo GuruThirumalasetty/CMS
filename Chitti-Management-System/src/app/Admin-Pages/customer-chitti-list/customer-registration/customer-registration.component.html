@@ -10,36 +10,41 @@
       <span class="font-style" style="margin: 15px;margin-top: -34px;">Customer Registration</span>
       <mat-card style="margin: 20px;margin-top: 2px;" class="mat-card-bgs">
                 <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="1rem" style="margin-top: 0.5rem;margin: 1rem;" >
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Customer Name</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Customer Name" formControlName="customerName">
+                            <mat-error *ngIf="hasError('customerName','required')">Customer Name is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Phone Number</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter Phone Number" formControlName="phoneNumber">
+                            placeholder="Please Enter Phone Number" formControlName="phoneNumber" [readonly]="phoneReadonly" (blur)="checkNumber($event.target)">
+                        <mat-error *ngIf="hasError('phoneNumber','required')">Pnone Number is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                        <mat-error *ngIf="phoneError">Phone Number is already existed</mat-error>
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>EmailId</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter EmailId" formControlName="emailId">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput formControlName="Password" class="input-typing-style"
+                        <input matInput formControlName="password" class="input-typing-style"
                             placeholder="Please Enter Password"
-                            type="{{(showPassword === false)?'password':'text'}}" />
+                            type="{{(showPassword === false)?'password':'text'}}" [readonly]="passReadonly"/>
                         <mat-icon matSuffix style="cursor: pointer;" (click)="toggleShowPassword()">
-                            {{!showPassword?'visibility_off' : 'visibility'}}</mat-icon>
+                            {{!showPassword?'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                        <mat-error *ngIf="hasError('password','required')">Password is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>DOB</mat-label>
                         <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName="DOB">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Gender</mat-label>
                         <mat-select value="value" class="mat-option-style-select"  value="value" placeholder="Please select Gender" formControlName="gender">
                             <mat-option class="mat-option-style">Select</mat-option>
@@ -48,23 +53,23 @@
                             <mat-option class="mat-option-style" value="Others">Others</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Aadhar</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Aadhar" formControlName="aadhar">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>PAN</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter PAN" formControlName="panNumber">
                     </mat-form-field>
 
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Address</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Address" formControlName="address">
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" >
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" >
                         <mat-label>Chitti Type</mat-label>
                             <mat-select class="mat-option-style-select"  value="value" placeholder="Please select Chitti Type" (selectionChange)="optionChange($event.value)" formControlName="chittiType">
                                 <mat-option class="mat-option-style">Select</mat-option>
@@ -72,18 +77,20 @@
                                 <mat-option class="mat-option-style" value="FixedChitti">Fixed Chitti</mat-option>
                                 <mat-option class="mat-option-style" value="DividendChitti">Dividend Chitti</mat-option>
                             </mat-select>
+                            <mat-error *ngIf="hasError('chittiType','required')">Customer Name is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
                         <mat-label>Chitti Name</mat-label>
                         <mat-select formControlName="chittiName">
                             <mat-option class="mat-option-style" *ngFor="let value of option" [value]="value">{{value}}</mat-option>
                         </mat-select>
+                        <mat-error *ngIf="hasError('chittiName','required')">Chitti Name is Required</mat-error>
                         <!-- <input matInput  type="text" class="input-typing-style" 
                             placeholder="Please Enter Chitti Name"> -->
                     </mat-form-field>              
                 </div>
                 <div align="center" class="submit-btn">
-                    <button mat-raised-button color="primary" (click)="submitRegistrationDetails(customerRegistrationForm.value)">Submit</button>
+                    <button mat-raised-button class="btn-primary" (click)="submitRegistrationDetails(customerRegistrationForm.value)">{{button}}</button>
                 </div>
         </mat-card>
      </form>

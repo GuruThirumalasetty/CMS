@@ -18,36 +18,23 @@ export class CustomerChittiListComponent implements OnInit{
   button = 'AddNew';
   isLoading: boolean = false;
   constructor(private router: Router,private dialog:MatDialog,private spinner: NgxSpinnerService,private cmsService:CmsService) { }
- 
-  // addNew(){
-  
-  //   setTimeout(() => {
-     
-  //     this.dialog.open(CustomerRegistrationComponent,{
-  //       disableClose: true,
-  //     width: '80%',
-  //     height:'auto',
-  //     })
-  //   }, 500)
 
-  // }
   ngOnInit(): void {
     this.getCustomerRegistrationDetails();
   }
   addNew() {
-    debugger
     this.isLoading = true;
     this.button = ' Wait';
     this.spinner.show();
     setTimeout(() => {
       this.spinner.show();
       this.isLoading = false;
-      this.button = ' AddNew';
+      this.button = 'AddNew';
       this.dialog.open(CustomerRegistrationComponent,{
         disableClose: true,
       width: '80%',
       height:'auto',
-      }).afterClosed().subscribe(val=>{
+      }).afterClosed().subscribe(()=>{
         this.getCustomerRegistrationDetails();
       })
       this.spinner.hide()
@@ -61,59 +48,46 @@ export class CustomerChittiListComponent implements OnInit{
   }
 
   editRegistrationDetails(form:any){
-    // Swal.fire({
-    //   title: 'Are you sure?',
-    //   text: "Do you want to Edit",
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonColor: '#3085d6',
-    //   cancelButtonColor: '#d33',
-    //   confirmButtonText: 'Yes, edit it!'
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //       this.dialog.open(CustomerRegistrationComponent,{
-    //       width:'80%',
-    //       height:'auto',
-    //       data:form
-    //     });
-    //   }
-    // })
-
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-
-    swalWithBootstrapButtons.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
+    Swal.fire({
+      title: 'Do you want to make changes?',
+      icon: 'question',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
-      reverseButtons: true
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
     }).then((result) => {
       if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
+        this.dialog.open(CustomerRegistrationComponent, {
+          width: '80%',
+          data: form,
+        }).afterClosed().subscribe((dialogResult) => {
+          if (dialogResult === 'Update') {
+            this.getCustomerRegistrationDetails();
+          }
+        });
       }
-    })
-    
+    });
+  }
+
+  deleteRegistrationDetails(id:number){
+    Swal.fire({
+      title: 'Do you want to Delete ?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+          this.cmsService.deleteCustomerRegistrationDetails(id).subscribe({
+          next:()=>{
+            this.deleteUserLogin(id);
+            this.getCustomerRegistrationDetails();
+          }
+        });
+      }
+    });
+  }
+  deleteUserLogin(id:number){
+    this.cmsService.deleteUserLogin(id).subscribe();
   }
 
 

@@ -11,11 +11,6 @@
       "id": 1,
       "username": "user",
       "password": "user@123"
-    },
-    {
-      "id": 2,
-      "username": "aravind",
-      "password": "aravind@123"
     }
   ],
   "master-chitti-create": [
@@ -124,20 +119,20 @@
       "id": 6
     }
   ],
-  "customer-registration":[
+  "customer-registration": [
     {
-        "id":1,
-        "customerName" : "Aravind",
-        "phoneNumber" : "9133800412",
-        "emailId" : "aravind@gmail.com",
-        "password" : "aravind@123",
-        "DOB" : "2023-02-02",
-        "gender" : "male",
-        "aadhar" : "123456789123",
-        "panNumber" : "AAAAA1111A",
-        "address" : "Old Bowenpally",
-        "chittiType" : "CompanyChitti",
-        "chittiName" : "Aravind Chitti"
+      "customerName": "Aravind",
+      "phoneNumber": "9876543210",
+      "emailId": "aravind@gmail.com",
+      "password": "aravind@123",
+      "DOB": "2023-02-02",
+      "gender": "Male",
+      "aadhar": "123456789123",
+      "panNumber": "AAAAA1111A",
+      "address": "Andhra Pradesh",
+      "chittiType": "CompanyChitti",
+      "chittiName": "Aravind Chitti",
+      "id": 1
     }
   ]
 }
