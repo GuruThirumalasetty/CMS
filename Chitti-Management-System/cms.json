@@ -8,9 +8,14 @@
   ],
   "userLogin": [
     {
-      "id": 1,
-      "username": "user",
-      "password": "user@123"
+      "username": "6302207373",
+      "password": "babi@123",
+      "id": 4
+    },
+    {
+      "username": "9133800412",
+      "password": "guru@123",
+      "id": 5
     }
   ],
   "master-chitti-create": [
@@ -67,23 +72,6 @@
     },
     {
       "chittiType": "CompanyChitti",
-      "chittiName": "Local Chitti",
-      "noOfMembers": "10",
-      "noOfMonths": "10",
-      "companyChittiMonth": "2023-09-13T18:30:00.000Z",
-      "startFrom": "2023-09-12T18:30:00.000Z",
-      "endTo": "2023-09-18T18:30:00.000Z",
-      "monthlyAmount": "20000",
-      "chittiValue": "2000000",
-      "amountAfterLifting": "195000",
-      "amountToCompany": "5000",
-      "deduction": "",
-      "minBidAmount": "",
-      "bidDate": "",
-      "id": 4
-    },
-    {
-      "chittiType": "CompanyChitti",
       "chittiName": "Aravind Chitti",
       "noOfMembers": "3",
       "noOfMonths": "20",
@@ -121,18 +109,69 @@
   ],
   "customer-registration": [
     {
-      "customerName": "Aravind",
-      "phoneNumber": "9876543210",
-      "emailId": "aravind@gmail.com",
-      "password": "aravind@123",
-      "DOB": "2023-02-02",
+      "customerName": "Babi",
+      "phoneNumber": "6302207373",
+      "emailId": "sairam@gmail.com",
+      "password": "babi@123",
+      "DOB": "2000-07-06T18:30:00.000Z",
       "gender": "Male",
-      "aadhar": "123456789123",
+      "aadhar": "222222222222",
+      "panNumber": "SSSSS2222S",
+      "address": "Tadipudi , Tallapudi Mandal",
+      "chittiType": "DividendChitti",
+      "chittiName": "aravind",
+      "id": 4
+    },
+    {
+      "customerName": "Guru",
+      "phoneNumber": "9133800412",
+      "emailId": "guru@gmail.com",
+      "password": "guru@123",
+      "DOB": "2016-01-05T18:30:00.000Z",
+      "gender": "Male",
+      "aadhar": "123456789012",
       "panNumber": "AAAAA1111A",
-      "address": "Andhra Pradesh",
-      "chittiType": "CompanyChitti",
-      "chittiName": "Aravind Chitti",
+      "address": "KPHB Colony",
+      "chittiType": "FixedChitti",
+      "chittiName": "fixed chitti name",
+      "id": 5
+    }
+  ],
+  "userNotifications": [
+    {
+      "message": [
+        "Radha",
+        "HIii aravind"
+      ],
+      "date": "2023-09-15T17:19:20.549Z",
+      "PhoneNumber": "9876543210",
       "id": 1
+    },
+    {
+      "message": [
+        {
+          "text": "Hiiii Guru",
+          "date": "2023-09-17T07:28:39.185Z"
+        },
+        {
+          "text": "Welcome to Fixed chitti name",
+          "date": "2023-09-17T07:37:09.736Z"
+        },
+        {
+          "text": "Where are broh",
+          "date": "2023-09-17T07:39:21.672Z"
+        },
+        {
+          "text": "You need to pay your chitti payment ",
+          "date": "2023-09-17T08:07:04.246Z"
+        },
+        {
+          "text": "Hiii Guru . Welcome to Fixed chitti",
+          "date": "2023-09-17T14:03:36.261Z"
+        }
+      ],
+      "PhoneNumber": "9133800412",
+      "id": 2
     }
   ]
 }
