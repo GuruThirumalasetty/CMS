@@ -6,6 +6,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CmsService } from 'src/app/Services/cms.service';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { find } from 'rxjs';
 
 @Component({
   selector: 'app-customer-chitti-list',
@@ -14,13 +16,21 @@ import Swal from 'sweetalert2';
 })
 export class CustomerChittiListComponent implements OnInit{
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'chittitype', 'chittiname', 'CustomerName', 'PhoneNumber','EmailId', 'actions'];
+  displayedColumns: string[] = ['id','notification', 'chittitype', 'chittiname', 'CustomerName', 'PhoneNumber','EmailId', 'actions'];
   button = 'AddNew';
   isLoading: boolean = false;
-  constructor(private router: Router,private dialog:MatDialog,private spinner: NgxSpinnerService,private cmsService:CmsService) { }
+    data:any;
+  notificationForm !:FormGroup;
+  constructor(private router: Router,private dialog:MatDialog,
+    private spinner: NgxSpinnerService,private cmsService:CmsService,
+    private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.getCustomerRegistrationDetails();
+    this.notificationForm = this.formBuilder.group({
+      Notification : new FormControl('')
+    });
+    this.getNotification();
   }
   addNew() {
     this.isLoading = true;
@@ -39,6 +49,13 @@ export class CustomerChittiListComponent implements OnInit{
       })
       this.spinner.hide()
     }, 1000 )
+  }
+
+  getNotification(){
+    this.data = [];
+    this.cmsService.getNotification().subscribe((res)=>{
+      this.data = res;
+    });
   }
 
   getCustomerRegistrationDetails(){
@@ -68,9 +85,11 @@ export class CustomerChittiListComponent implements OnInit{
     });
   }
 
-  deleteRegistrationDetails(id:number){
+  deleteRegistrationDetails(row:any){
+    let id = row.id;
+    let customerName = row.customerName;
     Swal.fire({
-      title: 'Do you want to Delete ?',
+      title: 'Do you want to Delete '+customerName+' ?',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Yes',
@@ -83,6 +102,7 @@ export class CustomerChittiListComponent implements OnInit{
             this.getCustomerRegistrationDetails();
           }
         });
+        this.deleteNotification(row.phoneNumber);
       }
     });
   }
@@ -90,5 +110,21 @@ export class CustomerChittiListComponent implements OnInit{
     this.cmsService.deleteUserLogin(id).subscribe();
   }
 
+  updateNotification(formValue:any,mobileNumber:any){
+    let note = this.data.find((x:any)=>x.PhoneNumber === mobileNumber);
+    let data = {
+      text : formValue.Notification,
+      date : new Date()
+    }
+    note?.message.push(data);
+    this.cmsService.putNotification(note,note.id).subscribe(()=>{
+        this.notificationForm.reset();
+    });
+  }
+
+  deleteNotification(phoneNumber:any){
+    let notification = this.data.find((x:any)=>x.PhoneNumber === phoneNumber);
+    this.cmsService.deleteNotification(notification.id).subscribe();
+  }
 
 }

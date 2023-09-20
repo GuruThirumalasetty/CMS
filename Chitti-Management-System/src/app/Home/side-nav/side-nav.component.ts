@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CmsService } from 'src/app/Services/cms.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -19,17 +20,19 @@ export class SideNavComponent {
   userLogin:any;
   adminLogin:any;
   userName:any;
+  data:any;
+  notificationMsgs :any;
+  notificationDate:any;
 
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,private cmsService : CmsService) { }
 
   ngOnInit(): void {
-    debugger
     this.sidenavRestrictions = localStorage.getItem('sidenavRestrictions');
     this.sidenavRestrictions = JSON.parse(this.sidenavRestrictions);
     this.userLogin = this.sidenavRestrictions.userLogin;
     this.adminLogin = this.sidenavRestrictions.adminLogin;
-    this.userName = localStorage.getItem('UserName')
+    this.userName = localStorage.getItem('UserName');
+    this.getNotifications();
   }
   logout() {
     //this.userAuthService.logout();
@@ -55,6 +58,21 @@ export class SideNavComponent {
       this.isShowing = false;
       
     }
+  }
+
+  getNotificationDetails(){
+    this.cmsService.getNotification().subscribe(res=>{
+      this.data = res;
+    })
+  }
+
+  getNotifications(){
+    this.cmsService.getNotification().subscribe((res:any)=>{
+      this.data = [];
+      this.data = res;
+      let notificationInfo = this.data.find((x:any)=>x.PhoneNumber === this.userName);
+      this.notificationMsgs = notificationInfo?.message;
+    });
   }
 
 }

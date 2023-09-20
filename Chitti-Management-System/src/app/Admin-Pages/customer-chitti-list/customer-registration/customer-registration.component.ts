@@ -88,6 +88,7 @@ export class CustomerRegistrationComponent {
           next:()=>{
             this.customerRegistrationForm.reset();
             this.userCredentials(form.phoneNumber,form.password);
+            this.sendNotification('Hiiii '+form.customerName,form.phoneNumber);
             this.dialogRef.close('Save');
           }
         });
@@ -139,5 +140,18 @@ export class CustomerRegistrationComponent {
         username?.includes(value) ? this.phoneError = true :this.phoneError = false;
       })
     }
+  }
+  sendNotification(message:any,mobileNumber:any){
+    let notificationArray = [
+      {
+        text : message,
+        date : new Date()
+      }
+    ];
+    let data = {
+      "message": notificationArray,
+      "PhoneNumber":mobileNumber
+    }
+    this.cmsService.postNotification(data).subscribe();
   }
 }

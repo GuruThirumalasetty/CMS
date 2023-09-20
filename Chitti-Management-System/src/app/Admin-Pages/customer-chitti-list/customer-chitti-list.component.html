@@ -51,10 +51,20 @@
             <button mat-icon-button color="primary" (click)="editRegistrationDetails(row)">
               <mat-icon  matTooltip="Edit">edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" matTooltip="Delete" (click)="deleteRegistrationDetails(row.id)">
+            <button mat-icon-button color="warn" matTooltip="Delete" (click)="deleteRegistrationDetails(row)">
               <mat-icon>delete</mat-icon>
             </button>
-            
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="notification">
+          <mat-header-cell *matHeaderCellDef>Notification</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <form [formGroup]="notificationForm">
+              <mat-form-field appearance="outline" style="margin-top: 15px;width: 74%;margin-left: -16px;">
+                <input matInput type="textarea" formControlName="Notification">
+                <mat-icon matSuffix style="font-size: 23px;" (click)="updateNotification(notificationForm.value,element.phoneNumber)">send</mat-icon>
+              </mat-form-field>
+            </form>
           </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

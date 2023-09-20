@@ -33,7 +33,6 @@ export class MasterChittiListComponent {
     this.getChittiDetails();
   }
   getChittiDetails() {
-    debugger;
     this.cmsService.getChittiMasterCreateDetails().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
@@ -86,7 +85,7 @@ export class MasterChittiListComponent {
     });
   }
 
-  deleteChittiDetails(id:number){
+  deleteChittiDetails(row:any){
     // npm install sweetalert2
     // Swal.fire({
     //   title: 'Are you sure?',
@@ -111,5 +110,22 @@ export class MasterChittiListComponent {
     //     this.getChittiDetails();
     //   }
     // });
+    let id = row.id;
+    let chittiName = row.chittiName;
+    Swal.fire({
+      title: 'Do you want to Delete '+chittiName+' ?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+          this.cmsService.deleteChittiMasterCreateDetails(id).subscribe({
+          next:()=>{
+            this.getChittiDetails();
+          }
+        });
+      }
+    });
   }
 }
