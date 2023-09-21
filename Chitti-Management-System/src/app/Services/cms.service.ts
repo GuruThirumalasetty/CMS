@@ -58,4 +58,7 @@ export class CmsService {
   deleteNotification(id:any){
     return this.http.delete<any>("http://localhost:3000/userNotifications/"+id);
   }
+  postPaymentDetails(data:any){
+    return this.http.post<any>("http://localhost:3000/paument-details",data);
+  }
 }

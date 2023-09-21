@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 <mat-card class="matcard-bg-color">
       <mat-dialog-actions align="end">
-        <button mat-icon-button [mat-dialog-close]="true" (click)="closedialog()" >
+        <button mat-icon-button [mat-dialog-close]="true">
           <mat-icon color="warn" >close</mat-icon>
         </button>
       </mat-dialog-actions>
@@ -18,16 +18,26 @@
                                 <mat-option class="mat-option-style" value="FixedChitti">Fixed Chitti</mat-option>
                                 <mat-option class="mat-option-style" value="DividendChitti">Dividend Chitti</mat-option>
                             </mat-select>
+                            <mat-error *ngIf="hasError('chittiType','required')">Chitti Type is Required</mat-error>
+                            <!-- <mat-error *ngIf="chittipaymentForm.controls['chittiName'].hasError('required')">Chitti Type is Required</mat-error> -->
                         </mat-form-field>
                         <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                             <mat-label>Chitti Name</mat-label>
-                            <input matInput  type="text" class="input-typing-style" 
-                                placeholder="Please Enter Chitti Name" formControlName="chittiName">
+                            <!-- <input matInput  type="text" class="input-typing-style" 
+                                placeholder="Please Enter Chitti Name" formControlName="chittiName"> -->
+                                <mat-select formControlName="chittiName" (selectionChange)="chittiNameChange($event.value)">
+                                    <mat-option *ngFor="let value of chittiNameOptions" [value]="value">{{value}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="hasError('chittiName','required')">Chitti Name is Required</mat-error>
                         </mat-form-field>
                     <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Customer Name</mat-label>
-                        <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter EmailId" formControlName="CustomerName">
+                        <!-- <input matInput  type="text" class="input-typing-style"
+                            placeholder="Please Enter EmailId" formControlName="CustomerName"> -->
+                            <mat-select formControlName="CustomerName">
+                                <mat-option *ngFor="let value of customerNameOptions" [value]="value">{{value}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="hasError('CustomerName','required')">Customer Name is Required</mat-error>
                     </mat-form-field>
                 
                     <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
@@ -57,6 +67,7 @@
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Address" formControlName="Amount">
                     </mat-form-field>
+                    <mat-error *ngIf="hasError('Amount','required')">Amount is Required</mat-error>
                     <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Tranfer Type</mat-label>
                         <input matInput  type="text" class="input-typing-style"
@@ -65,7 +76,7 @@
                             
                 </div>
                 <div align="center" class="submit-btn">
-                    <button mat-raised-button color="primary" (click)="submitchittipaymentDetails(chittipaymentForm.value)">Submit</button>
+                    <button mat-raised-button color="primary" (click)="submitchittipaymentDetails(chittipaymentForm)">Submit</button>
                 </div>
         </mat-card>
      </form>
