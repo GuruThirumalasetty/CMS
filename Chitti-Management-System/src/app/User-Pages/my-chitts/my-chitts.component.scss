@@ -1,0 +1,13 @@
+mat-card:hover{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    // height: 335px;
+    // max-width: 305px;
+}
+mat-card{
+    height: 350px;
+    width: 300px;
+    display: flex;
+}
+mat-card div{
+    padding: 15px 15px;
+}

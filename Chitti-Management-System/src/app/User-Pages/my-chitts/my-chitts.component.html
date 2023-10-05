@@ -1,1 +1,15 @@
-<p>my-chitts works!</p>
+<div style="display: flex;">
+    <div style="margin: 50px;" class="card-div" *ngFor="let arr of array">
+        <mat-card>
+            <div>Name : {{arr.customerName}}</div>
+            <div>Phone Number : {{arr.phoneNumber}}</div>
+            <div>Chitti Type : {{arr.chittiType}}</div>
+            <div>Chitti Name : {{arr.chittiName}}</div>
+            <div>Date : {{arr.date | date}}</div>
+            <div>
+                Due Amount : {{arr.dueAmount}}
+                <button mat-raised-button color="warn" style="max-width: 100px;float: right;" (click)="payNow(arr)">Pay Now</button>
+            </div>
+        </mat-card>
+    </div>
+</div>
