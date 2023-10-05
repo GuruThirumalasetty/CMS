@@ -27,7 +27,7 @@
 		</button>
 			<mat-menu #notificationsMenu [overlapTrigger]="false" yPosition="below">
 				<div class="notificationBar" *ngFor="let note of notificationMsgs; let i = index">
-					{{i + 1}}.{{note.text}} <span style="font-size: 10px;margin-left: 35px;">{{note.date | date:'dd MMM, HH:mm'}}</span>
+					{{i + 1}}.{{note.text}} <span style="font-size: 10px;float: right;margin-right: 15px;">{{note.date | date:'dd MMM, HH:mm'}}</span>
 					<hr style="width: 90%;">
 				</div>
 			</mat-menu>

@@ -28,7 +28,6 @@ export class ChittiPaymentDetailsComponent {
 
   }
   chittiTypeChange(val:any){
-    debugger
     this.chittiNameOptions = [];
     this.cmsService.getChittiMasterCreateDetails().subscribe({
       next: (res) => {
@@ -41,7 +40,6 @@ export class ChittiPaymentDetailsComponent {
     });
   }
   chittiNameChange(val:any){
-    debugger
     this.customerNameOptions = [];
     this.cmsService.getCustomerRegistrationDetails().subscribe(res=>{
       res.map((value:any)=>{
@@ -51,7 +49,6 @@ export class ChittiPaymentDetailsComponent {
     })
   }
   submitchittipaymentDetails(form:any){
-    debugger
     if(form.valid){
       // this.cmsService.postPaymentDetails(form.value).subscribe();
     }

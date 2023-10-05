@@ -18,8 +18,8 @@
                                 <mat-option class="mat-option-style" value="FixedChitti">Fixed Chitti</mat-option>
                                 <mat-option class="mat-option-style" value="DividendChitti">Dividend Chitti</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="hasError('chittiType','required')">Chitti Type is Required</mat-error>
-                            <!-- <mat-error *ngIf="chittipaymentForm.controls['chittiName'].hasError('required')">Chitti Type is Required</mat-error> -->
+                            <!-- <mat-error *ngIf="hasError('chittiType','required')">Chitti Type is Required</mat-error> -->
+                            <mat-error *ngIf="chittipaymentForm.controls['chittiType'].hasError('required')">Chitti Type is Required</mat-error>
                         </mat-form-field>
                         <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                             <mat-label>Chitti Name</mat-label>
@@ -28,7 +28,8 @@
                                 <mat-select formControlName="chittiName" (selectionChange)="chittiNameChange($event.value)">
                                     <mat-option *ngFor="let value of chittiNameOptions" [value]="value">{{value}}</mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="hasError('chittiName','required')">Chitti Name is Required</mat-error>
+                                <!-- <mat-error *ngIf="hasError('chittiName','required')">Chitti Name is Required</mat-error> -->
+                            <mat-error *ngIf="chittipaymentForm.controls['chittiName'].hasError('required')">Chitti Name is Required</mat-error>
                         </mat-form-field>
                     <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Customer Name</mat-label>
@@ -37,7 +38,8 @@
                             <mat-select formControlName="CustomerName">
                                 <mat-option *ngFor="let value of customerNameOptions" [value]="value">{{value}}</mat-option>
                             </mat-select>
-                            <mat-error *ngIf="hasError('CustomerName','required')">Customer Name is Required</mat-error>
+                            <!-- <mat-error *ngIf="hasError('CustomerName','required')">Customer Name is Required</mat-error> -->
+                            <mat-error *ngIf="chittipaymentForm.controls['CustomerName'].hasError('required')">Customer Name is Required</mat-error>
                     </mat-form-field>
                 
                     <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
@@ -66,8 +68,9 @@
                         <mat-label>Amount</mat-label>
                         <input matInput  type="text" class="input-typing-style"
                             placeholder="Please Enter Address" formControlName="Amount">
+                        <mat-error *ngIf="chittipaymentForm.controls['Amount'].hasError('required')">Amount is Required</mat-error>
                     </mat-form-field>
-                    <mat-error *ngIf="hasError('Amount','required')">Amount is Required</mat-error>
+                    <!-- <mat-error *ngIf="hasError('Amount','required')">Amount is Required</mat-error> -->
                     <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Tranfer Type</mat-label>
                         <input matInput  type="text" class="input-typing-style"

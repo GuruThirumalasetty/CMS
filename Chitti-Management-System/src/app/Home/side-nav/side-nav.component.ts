@@ -60,12 +60,6 @@ export class SideNavComponent {
     }
   }
 
-  getNotificationDetails(){
-    this.cmsService.getNotification().subscribe(res=>{
-      this.data = res;
-    })
-  }
-
   getNotifications(){
     this.cmsService.getNotification().subscribe((res:any)=>{
       this.data = [];
