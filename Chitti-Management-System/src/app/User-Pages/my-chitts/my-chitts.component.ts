@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-chitts',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class MyChittsComponent {
 
+  constructor(private router:Router){}
+
+  array = [
+    {chittiType:'Company Chitti',chittiName:'Aravind Chitti',customerName:'Guru',dueAmount:'20,000',date:new Date(),phoneNumber:'9133800412'},
+    {chittiType:'Fixed Chitti',chittiName:'Aravind Chitti',customerName:'Koti',dueAmount:'15,000',date:new Date(),phoneNumber:'8555021827'},
+  ]
+  payNow(arr:any){
+    console.log(arr.dueAmount);
+  }
+  myProfile(arr:any){
+    console.log(arr)
+    this.router.navigate(['/my-profile']);
+  }
 }

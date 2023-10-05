@@ -7,6 +7,8 @@ import { DasboardComponent } from './dasboard/dasboard.component';
 import { authGuardGuard } from './Guard/auth-guard.guard';
 import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/customer-chitti-list.component';
 import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/chitti-payment-list.component';
+import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
+import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
 
 const routes: Routes = [
   {
@@ -51,10 +53,23 @@ const routes: Routes = [
     path: 'customer-payment-list',
     component: SideNavComponent,
     children: [
-      { path: '', component:ChittiPaymentListComponent  }
-     
+      { path: '', component:ChittiPaymentListComponent  }     
     ]
-  }
+  },
+  {
+    path:'my-chits',
+    component:SideNavComponent,
+    children:[
+      {path:'',component:MyChittsComponent}
+    ]
+  },
+  {
+    path:'my-profile',
+    component:SideNavComponent,
+    children:[
+      {path:'',component:MyProfileComponent}
+    ]
+  },
 ];
 
 @NgModule({
