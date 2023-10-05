@@ -85,7 +85,6 @@ export class MasterChittiCreateComponent {
     this.dialogRef.close();
   }
   chittiTypeChange(value:any){
-    debugger
     if(value=="FixedChitti"){
     this.CompanyChitti=true;
     this.submit=true;
