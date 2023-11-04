@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
@@ -7,7 +7,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { CmsService } from 'src/app/Services/cms.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { find } from 'rxjs';
+import { find , filter} from 'rxjs';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-customer-chitti-list',
@@ -19,8 +20,10 @@ export class CustomerChittiListComponent implements OnInit{
   displayedColumns: string[] = ['id','notification', 'chittitype', 'chittiname', 'CustomerName', 'PhoneNumber','EmailId', 'actions'];
   button = 'AddNew';
   isLoading: boolean = false;
-    data:any;
+  data:any;
+  option:any;
   notificationForm !:FormGroup;
+  @ViewChild(MatPaginator)paginator!:MatPaginator
   constructor(private router: Router,private dialog:MatDialog,
     private spinner: NgxSpinnerService,private cmsService:CmsService,
     private formBuilder:FormBuilder) { }
@@ -61,6 +64,7 @@ export class CustomerChittiListComponent implements OnInit{
   getCustomerRegistrationDetails(){
     this.cmsService.getCustomerRegistrationDetails().subscribe((res:any)=>{
       this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
     });
   }
 
@@ -125,6 +129,34 @@ export class CustomerChittiListComponent implements OnInit{
   deleteNotification(phoneNumber:any){
     let notification = this.data.find((x:any)=>x.PhoneNumber === phoneNumber);
     this.cmsService.deleteNotification(notification.id).subscribe();
+  }
+
+  chittiTypeChange(val:any){
+    if(val){
+      this.option = [];
+      this.cmsService.getChittiMasterCreateDetails().subscribe({
+        next: (res) => {
+          res.map((value:any)=>{
+            if(value.chittiType === val){
+              this.option.splice(0,0,value.chittiName);
+            }
+          })
+        }
+      });
+    }
+    else{
+      this.getCustomerRegistrationDetails();
+      this.option = [];
+    }
+    
+  }
+
+  chittiNameChange(val:any){
+    this.cmsService.getCustomerRegistrationDetails().subscribe((res:any)=>{
+      let data = res.filter((x:any)=>x.chittiName == val);
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
   }
 
 }

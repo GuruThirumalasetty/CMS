@@ -16,6 +16,7 @@ export class MyChittsComponent {
   ]
   payNow(arr:any){
     console.log(arr.dueAmount);
+    this.router.navigate(['/user-payment']);
   }
   myProfile(arr:any){
     console.log(arr)

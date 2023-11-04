@@ -9,42 +9,43 @@
     <form [formGroup]="customerRegistrationForm">
       <span class="font-style" style="margin: 15px;margin-top: -34px;">Customer Registration</span>
       <mat-card style="margin: 20px;margin-top: 2px;" class="mat-card-bgs">
-                <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="1rem" style="margin-top: 0.5rem;margin: 1rem;" >
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                <div fxLayout="row wrap" fxFlex="100" fxLayoutGap="2rem" style="margin-top: 0.5rem;margin: 1rem;" >
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Customer Name</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter Customer Name" formControlName="customerName">
+                            placeholder="Please Enter Customer Name" formControlName="customerName" [readonly]="readonlyOfAll">
                             <mat-error *ngIf="hasError('customerName','required')">Customer Name is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Phone Number</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter Phone Number" formControlName="phoneNumber" [readonly]="phoneReadonly" (blur)="checkNumber($event.target)">
+                            placeholder="Please Enter Phone Number" formControlName="phoneNumber" [readonly]="phoneReadonly" (keyup)="checkNumber($event.target)"><!--   -->
+                            <mat-icon matSuffix (click)="mobileNumberSearch()">search</mat-icon>
                         <mat-error *ngIf="hasError('phoneNumber','required')">Pnone Number is Required</mat-error>
                     </mat-form-field>
-                        <mat-error *ngIf="phoneError">Phone Number is already existed</mat-error>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>EmailId</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter EmailId" formControlName="emailId">
+                            placeholder="Please Enter EmailId" formControlName="emailId" [readonly]="readonlyOfAll">
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput formControlName="password" class="input-typing-style"
                             placeholder="Please Enter Password"
-                            type="{{(showPassword === false)?'password':'text'}}" [readonly]="passReadonly"/>
+                            type="{{(showPassword === false)?'password':'text'}}" [readonly]="passReadonly || readonlyOfAll"/>
                         <mat-icon matSuffix style="cursor: pointer;" (click)="toggleShowPassword()">
                             {{!showPassword?'visibility_off' : 'visibility'}}
                         </mat-icon>
                         <mat-error *ngIf="hasError('password','required')">Password is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>DOB</mat-label>
-                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName="DOB">
-                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName="DOB" [readonly]="readonlyOfAll">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker" *ngIf="!readonlyOfAll"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
+                        <mat-icon *ngIf="readonlyOfAll" matSuffix>event</mat-icon>
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Gender</mat-label>
                         <mat-select value="value" class="mat-option-style-select"  value="value" placeholder="Please select Gender" formControlName="gender">
                             <mat-option class="mat-option-style">Select</mat-option>
@@ -53,25 +54,25 @@
                             <mat-option class="mat-option-style" value="Others">Others</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Aadhar</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter Aadhar" formControlName="aadhar">
+                            placeholder="Please Enter Aadhar" formControlName="aadhar" [readonly]="readonlyOfAll">
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>PAN</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter PAN" formControlName="panNumber">
+                            placeholder="Please Enter PAN" formControlName="panNumber" [readonly]="readonlyOfAll">
                     </mat-form-field>
 
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Address</mat-label>
                         <input matInput  type="text" class="input-typing-style"
-                            placeholder="Please Enter Address" formControlName="address">
+                            placeholder="Please Enter Address" formControlName="address" [readonly]="readonlyOfAll">
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline" >
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline" >
                         <mat-label>Chitti Type</mat-label>
-                            <mat-select class="mat-option-style-select"  value="value" placeholder="Please select Chitti Type" (selectionChange)="optionChange($event.value)" formControlName="chittiType">
+                            <mat-select class="mat-option-style-select"  value="value" placeholder="Please select Chitti Type" (selectionChange)="chittiTypeChange($event.value)" formControlName="chittiType">
                                 <mat-option class="mat-option-style">Select</mat-option>
                                 <mat-option class="mat-option-style" value="CompanyChitti">Company Chitti</mat-option>
                                 <mat-option class="mat-option-style" value="FixedChitti">Fixed Chitti</mat-option>
@@ -79,7 +80,7 @@
                             </mat-select>
                             <mat-error *ngIf="hasError('chittiType','required')">Customer Name is Required</mat-error>
                     </mat-form-field>
-                    <mat-form-field fxFlex="32" class="example-form-field" appearance="outline">
+                    <mat-form-field fxFlex="30" class="example-form-field" appearance="outline">
                         <mat-label>Chitti Name</mat-label>
                         <mat-select formControlName="chittiName">
                             <mat-option class="mat-option-style" *ngFor="let value of option" [value]="value">{{value}}</mat-option>

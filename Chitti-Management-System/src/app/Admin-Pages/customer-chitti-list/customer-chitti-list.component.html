@@ -17,12 +17,30 @@
             <button mat-raised-button class="btn-primary" [disabled]="isLoading" (click)="addNew()"> {{button}}</button>
           </div>
         </div>
+        <div>
+          Filter the Customers Based on the Chitti Name : 
+          <mat-form-field appearance="outline">
+            <mat-label>Chitti Type</mat-label>
+            <mat-select (selectionChange)="chittiTypeChange($event.value)">
+              <mat-option class="mat-option-style">Select</mat-option>
+              <mat-option class="mat-option-style" value="CompanyChitti">Company Chitti</mat-option>
+              <mat-option class="mat-option-style" value="FixedChitti">Fixed Chitti</mat-option>
+              <mat-option class="mat-option-style" value="DividendChitti">Dividend Chitti</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Chitti Name</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let value of option" [value]="value" (click)="chittiNameChange(value)">{{value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
    
     <mat-card class="matcard-bg-color custom-card" >
       <table  mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="id">
           <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          <mat-cell *matCellDef="let i = index"> {{ i + 1 }} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="chittitype">
           <mat-header-cell *matHeaderCellDef >Chitti Type</mat-header-cell>
@@ -30,7 +48,7 @@
         </ng-container>
         <ng-container matColumnDef="chittiname">
           <mat-header-cell *matHeaderCellDef>Chitti Name</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.chittiName}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{element.chittiName | titlecase}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="CustomerName">
           <mat-header-cell *matHeaderCellDef>Customer Name</mat-header-cell>

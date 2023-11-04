@@ -37,6 +37,7 @@ import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/ch
 import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
 import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UserPaymentComponent } from './User-Pages/user-payment/user-payment.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ChittiPaymentDetailsComponent,
     ChittiPaymentListComponent,
     MyChittsComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    UserPaymentComponent
   ],
   imports: [
     BrowserModule,

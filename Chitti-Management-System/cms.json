@@ -16,6 +16,26 @@
       "username": "9133800412",
       "password": "guru@123",
       "id": 5
+    },
+    {
+      "username": "8555021827",
+      "password": "Welcome@2023",
+      "id": 6
+    },
+    {
+      "username": "9133800412",
+      "password": "guru@123",
+      "id": 7
+    },
+    {
+      "username": "9133800412",
+      "password": "guru@123",
+      "id": 8
+    },
+    {
+      "username": "9133800412",
+      "password": "guru@123",
+      "id": 9
     }
   ],
   "master-chitti-create": [
@@ -135,6 +155,62 @@
       "chittiType": "FixedChitti",
       "chittiName": "fixed chitti name",
       "id": 5
+    },
+    {
+      "customerName": "Koti",
+      "phoneNumber": "8555021827",
+      "emailId": "kotitadi@gmail.com",
+      "password": "Welcome@2023",
+      "DOB": "1997-06-02T18:30:00.000Z",
+      "gender": "Male",
+      "aadhar": "1234567891234567",
+      "panNumber": "AAAAA1111A",
+      "address": "ESI Hospital",
+      "chittiType": "CompanyChitti",
+      "chittiName": "Aravind Chitti",
+      "id": 6
+    },
+    {
+      "customerName": "Guru",
+      "phoneNumber": "9133800412",
+      "emailId": "guru@gmail.com",
+      "password": "guru@123",
+      "DOB": "2016-01-05T18:30:00.000Z",
+      "gender": "Male",
+      "aadhar": "123456789012",
+      "panNumber": "AAAAA1111A",
+      "address": "KPHB Colony",
+      "chittiType": "CompanyChitti",
+      "chittiName": "companychitti",
+      "id": 7
+    },
+    {
+      "customerName": "Guru",
+      "phoneNumber": "9133800412",
+      "emailId": "guru@gmail.com",
+      "password": "guru@123",
+      "DOB": "2016-01-05T18:30:00.000Z",
+      "gender": "Male",
+      "aadhar": "123456789012",
+      "panNumber": "AAAAA1111A",
+      "address": "KPHB Colony",
+      "chittiType": "DividendChitti",
+      "chittiName": "aravind",
+      "id": 8
+    },
+    {
+      "customerName": "Guru",
+      "phoneNumber": "9133800412",
+      "emailId": "guru@gmail.com",
+      "password": "guru@123",
+      "DOB": "2016-01-05T18:30:00.000Z",
+      "gender": "Male",
+      "aadhar": "123456789012",
+      "panNumber": "AAAAA1111A",
+      "address": "KPHB Colony",
+      "chittiType": "CompanyChitti",
+      "chittiName": "chitti name",
+      "id": 9
     }
   ],
   "userNotifications": [
@@ -172,9 +248,47 @@
       ],
       "PhoneNumber": "9133800412",
       "id": 2
+    },
+    {
+      "message": [
+        {
+          "text": "Hiiii Koti",
+          "date": "2023-10-06T07:01:46.975Z"
+        }
+      ],
+      "PhoneNumber": "8555021827",
+      "id": 3
+    },
+    {
+      "message": [
+        {
+          "text": "Hiiii Guru",
+          "date": "2023-10-06T08:54:46.542Z"
+        }
+      ],
+      "PhoneNumber": "9133800412",
+      "id": 4
+    },
+    {
+      "message": [
+        {
+          "text": "Hiiii Guru",
+          "date": "2023-10-06T09:41:12.213Z"
+        }
+      ],
+      "PhoneNumber": "9133800412",
+      "id": 5
+    },
+    {
+      "message": [
+        {
+          "text": "Hiiii Guru",
+          "date": "2023-10-06T09:45:10.350Z"
+        }
+      ],
+      "PhoneNumber": "9133800412",
+      "id": 6
     }
   ],
-  "paument-details":[
-    
-  ]
+  "paument-details": []
 }

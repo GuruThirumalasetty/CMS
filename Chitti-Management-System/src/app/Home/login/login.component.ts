@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { CmsService } from 'src/app/Services/cms.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent {
     userLogin : true
   }
   
-  constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService,private cmsService:CmsService) { }
+  constructor(private formBuilder: FormBuilder,private router: Router,private authService: AuthService,private cmsService:CmsService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -68,6 +69,9 @@ export class LoginComponent {
                       localStorage.setItem('UserName',form.username);
                       localStorage.setItem('sidenavRestrictions',JSON.stringify(this.userRequirement));
                       this.router.navigate(['dashboard']);
+                    }
+                    else{
+                      this.snackBar.open("You Entered Credentials are Wrong", "Okay",{horizontalPosition:'end',duration:4000});
                     }
                   });
                 }
