@@ -13,13 +13,15 @@ export class CustomerRegistrationComponent {
   showPassword: boolean = false;
   option : any;
   button : string = "Submit";
-  phoneError : any;
   phoneReadonly : boolean = false;
   passReadonly : boolean = false;
   customerRegistrationForm !:FormGroup;
+  customerExistedErrorMsg:boolean = false;
+  readonlyOfAll: boolean = false;
+  mobileNumber: any;
 
   toggleShowPassword() {
-    if(!this.editData)
+    if(!this.editData && !this.readonlyOfAll)
       this.showPassword = !this.showPassword;
   }
   constructor(private dialogRef : MatDialogRef<CustomerChittiListComponent>,
@@ -53,7 +55,7 @@ export class CustomerRegistrationComponent {
         this.phoneReadonly = true;
         this.passReadonly = true;
         this.button = 'Update';
-        this.optionChange(this.editData.chittiType);
+        this.chittiTypeChange(this.editData.chittiType);
         this.customerRegistrationForm.controls['customerName'].setValue(this.editData.customerName);
         this.customerRegistrationForm.controls['phoneNumber'].setValue(this.editData.phoneNumber);
         this.customerRegistrationForm.controls['emailId'].setValue(this.editData.emailId);
@@ -68,22 +70,79 @@ export class CustomerRegistrationComponent {
       }
     }
 
-  optionChange(val:any) {
+    chittiTypeChange(val:any) {
+    let mobileNumber = this.customerRegistrationForm.controls['phoneNumber'].value;
     this.option = [];
-    this.cmsService.getChittiMasterCreateDetails().subscribe({
-      next: (res) => {
+    this.cmsService.getChittiMasterCreateDetails().subscribe((res) => {
         res.map((value:any)=>{
           if(value.chittiType === val){
             this.option.splice(0,0,value.chittiName);
           }
+          this.cmsService.getCustomerRegistrationDetails().subscribe((res:any)=>{
+            let customers = res.filter((x:any)=>x.phoneNumber == mobileNumber);
+            let chittiNames = customers.map((x:any)=>{ return x.chittiName; });
+            this.option = this.option.filter((item:any) => !chittiNames.includes(item));
+          })
         })
-      }
-    });
+      });
+      // this.removeRepeatedChittiNames(mobileNumber);
   }
 
+  // removeRepeatedChittiNames(mobileNumber:any){
+  //   debugger
+  //   this.cmsService.getCustomerRegistrationDetails().subscribe((res:any)=>{
+  //     let customers = res.filter((x:any)=>x.phoneNumber == mobileNumber);
+  //     let chittiNames = customers.map((x:any)=>{
+  //       return x.chittiName;
+  //     })
+  //     this.option = this.option.filter((item:any) => !chittiNames.includes(item));
+  //   })
+  // }
+
+
+  // submitRegistrationDetails(form:any){
+  //   debugger
+  //   if(!this.editData){
+  //     let mobileNumber = form.phoneNumber;
+  //     let chittiName = form.chittiName;
+  //     if(mobileNumber){
+  //         this.cmsService.getCustomerRegistrationDetails().subscribe((res:any)=>{
+  //           let customers = res.filter((x:any)=>x.phoneNumber === mobileNumber);
+  //           let customerCreationCheck = customers.find((x:any)=>x.chittiName === chittiName);
+  //           if(this.customerRegistrationForm.valid){
+  //             if(!customerCreationCheck){
+  //               this.cmsService.postCustomerRegistrationDetails(form).subscribe({
+  //                 next:()=>{
+  //                   this.customerRegistrationForm.reset();
+  //                   this.userCredentials(form.phoneNumber,form.password);
+  //                   this.sendNotification('Hiiii '+form.customerName,form.phoneNumber);
+  //                   this.dialogRef.close('Save');
+  //                 }
+  //               });
+  //             }
+  //             else{
+  //               this.customerExistedErrorMsg = true;
+  //             }
+  //           }
+  //           else{
+  //             return;
+  //           }
+  //         })
+  //     }
+  //     else{
+  //       return;
+  //     }
+  //   }
+  //   else{
+  //     this.updateRegistrationDetails();
+  //   }
+    
+  // }
   submitRegistrationDetails(form:any){
     if(!this.editData){
-      if(this.customerRegistrationForm.valid && !this.phoneError){
+      if(this.customerRegistrationForm.valid){
+        if(this.mobileNumber)
+          this.customerRegistrationForm.controls['phoneNumber'].setValue(this.mobileNumber);
         this.cmsService.postCustomerRegistrationDetails(form).subscribe({
           next:()=>{
             this.customerRegistrationForm.reset();
@@ -130,16 +189,19 @@ export class CustomerRegistrationComponent {
   }
 
   checkNumber(number:any){
-    if(!this.editData){
-      //let value = number.value.toUpperCase();
-      let value = number.value;
-      let username
-      this.cmsService.getUserLogin().subscribe((res:any)=>{
-        //username = res?.map((r: any) => r.username.toUpperCase())
-        username = res?.map((r: any) => r.username);
-        username?.includes(value) ? this.phoneError = true :this.phoneError = false;
-      })
-    }
+    // if(!this.editData){
+    //   //let value = number.value.toUpperCase();
+    //   let value = number.value;
+    //   let username
+    //   this.cmsService.getUserLogin().subscribe((res:any)=>{
+    //     //username = res?.map((r: any) => r.username.toUpperCase())
+    //     username = res?.map((r: any) => r.username);
+    //     username?.includes(value) ? this.phoneError = true :this.phoneError = false;
+    //   })
+    // }
+    this.customerRegistrationForm.controls['chittiType'].reset()
+    this.customerRegistrationForm.controls['chittiName'].reset()
+    this.option = [];
   }
   sendNotification(message:any,mobileNumber:any){
     let notificationArray = [
@@ -153,5 +215,30 @@ export class CustomerRegistrationComponent {
       "PhoneNumber":mobileNumber
     }
     this.cmsService.postNotification(data).subscribe();
+  }
+
+  mobileNumberSearch(){
+    debugger
+    if(!this.editData){
+      this.mobileNumber = this.customerRegistrationForm.controls['phoneNumber'].value;
+      this.cmsService.getCustomerRegistrationDetails().subscribe((res:any)=>{
+        let customers = res.filter((x:any)=>x.phoneNumber == this.mobileNumber);
+        if(customers.length > 0){
+          this.customerRegistrationForm.controls['chittiType'].reset();
+          this.customerRegistrationForm.controls['chittiName'].reset();
+          this.option = [];
+          this.customerRegistrationForm.controls['customerName'].setValue(customers[0].customerName);
+          this.customerRegistrationForm.controls['address'].setValue(customers[0].address);
+          this.customerRegistrationForm.controls['emailId'].setValue(customers[0].emailId);
+          this.customerRegistrationForm.controls['panNumber'].setValue(customers[0].panNumber);
+          this.customerRegistrationForm.controls['password'].setValue(customers[0].password);
+          this.customerRegistrationForm.controls['aadhar'].setValue(customers[0].aadhar);
+          this.customerRegistrationForm.controls['gender'].setValue(customers[0].gender);
+          this.customerRegistrationForm.controls['DOB'].setValue(customers[0].DOB);
+          this.readonlyOfAll = true;
+        }
+    })
+    }
+    
   }
 }

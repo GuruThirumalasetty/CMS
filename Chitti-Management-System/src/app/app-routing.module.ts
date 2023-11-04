@@ -9,6 +9,7 @@ import { CustomerChittiListComponent } from './Admin-Pages/customer-chitti-list/
 import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/chitti-payment-list.component';
 import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
 import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
+import { UserPaymentComponent } from './User-Pages/user-payment/user-payment.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,13 @@ const routes: Routes = [
     component:SideNavComponent,
     children:[
       {path:'',component:MyProfileComponent}
+    ]
+  },
+  {
+    path:'user-payment',
+    component:SideNavComponent,
+    children:[
+      {path:'',component:UserPaymentComponent}
     ]
   },
 ];

@@ -18,7 +18,7 @@ export class ChittiPaymentDetailsComponent {
       CustomerName: new FormControl('',[Validators.required]),
       PaymentType: new FormControl(''),
       PaymentMonth: new FormControl(''),
-      PaymentDate: new FormControl(''),
+      PaymentDate: new FormControl(new Date()),
       Amount: new FormControl('',[Validators.required]),
       TranferType: new FormControl(''),
     })
@@ -55,7 +55,6 @@ export class ChittiPaymentDetailsComponent {
     console.log(form.value);
   }
   hasError(formControlName:any,error:any){
-    debugger
     this.chittipaymentForm.controls[formControlName].hasError(error);
   }
 }
