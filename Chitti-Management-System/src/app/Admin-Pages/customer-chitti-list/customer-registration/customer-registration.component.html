@@ -23,7 +23,7 @@
                             <mat-icon matSuffix (click)="mobileNumberSearch()">search</mat-icon>
                         <mat-error *ngIf="hasError('phoneNumber','required')">Pnone Number is Required</mat-error>
                     </mat-form-field>
-                        <mat-error *ngIf="phoneError">Phone Number is already existed</mat-error>
+                        <!-- <mat-error *ngIf="phoneError">Phone Number is already existed</mat-error> -->
                     <mat-form-field fxFlex="31" class="example-form-field" appearance="outline">
                         <mat-label>EmailId</mat-label>
                         <input matInput  type="text" class="input-typing-style"
