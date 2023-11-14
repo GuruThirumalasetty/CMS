@@ -10,6 +10,7 @@ import { ChittiPaymentListComponent } from './Admin-Pages/chitti-payment-list/ch
 import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
 import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
 import { UserPaymentComponent } from './User-Pages/user-payment/user-payment.component';
+import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 
 const routes: Routes = [
   {
@@ -78,6 +79,15 @@ const routes: Routes = [
       {path:'',component:UserPaymentComponent}
     ]
   },
+  
+  {
+    path: 'otp-vrification',
+    component: SideNavComponent,
+    children: [
+      { path: '', component:OtpVerificationComponent  }
+     
+    ]
+  }
 ];
 
 @NgModule({

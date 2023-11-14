@@ -115,12 +115,14 @@ export class CustomerChittiListComponent implements OnInit{
   }
 
   updateNotification(formValue:any,mobileNumber:any){
+    debugger
     let note = this.data.find((x:any)=>x.PhoneNumber === mobileNumber);
     let data = {
       text : formValue.Notification,
       date : new Date()
     }
     note?.message.push(data);
+    debugger
     this.cmsService.putNotification(note,note.id).subscribe(()=>{
         this.notificationForm.reset();
     });
