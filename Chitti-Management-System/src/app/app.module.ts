@@ -38,6 +38,8 @@ import { MyChittsComponent } from './User-Pages/my-chitts/my-chitts.component';
 import { MyProfileComponent } from './User-Pages/my-profile/my-profile.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UserPaymentComponent } from './User-Pages/user-payment/user-payment.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 
 
 @NgModule({
@@ -54,7 +56,8 @@ import { UserPaymentComponent } from './User-Pages/user-payment/user-payment.com
     ChittiPaymentListComponent,
     MyChittsComponent,
     MyProfileComponent,
-    UserPaymentComponent
+    UserPaymentComponent,
+    OtpVerificationComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,9 @@ import { UserPaymentComponent } from './User-Pages/user-payment/user-payment.com
     FlexLayoutModule,
     NgxSpinnerModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDividerModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,17 @@
+
+
+<div *ngIf="Defaultpage">
+<div >
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="number" placeholder="Enter mobile number" (input)="onOtpChange()" maxlength="10">
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" (click)="sendotp()">send OTP</button>
+</div>
+  <div *ngIf="otppage">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="otp" placeholder="Enter OTP" (input)="onOtpChange()" maxlength="6">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="verifyOtp()">Verify OTP</button>
+  </div>
+ 

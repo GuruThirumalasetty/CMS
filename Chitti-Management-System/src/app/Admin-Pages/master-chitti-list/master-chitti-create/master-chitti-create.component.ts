@@ -21,7 +21,7 @@ export class MasterChittiCreateComponent {
   Deduction: boolean = false;
   isLoading: boolean = false;
   Backbutton = ' Back';
-  addNewBtn : string = 'Save';
+  addNewBtn : string = 'Submit';
   constructor(private formbuilder:FormBuilder,
     private router: Router,
     private dialog:MatDialog,private cmsService:CmsService,
@@ -143,8 +143,8 @@ export class MasterChittiCreateComponent {
         if(this.chittiMasterCreateForm.valid){
         this.cmsService.postChittiMasterCreate(form).subscribe();
         this.chittiMasterCreateForm.reset();
-        this.dialogRef.close('Save');
-        this.addNewBtn = 'Save';
+        this.dialogRef.close('Submit');
+        this.addNewBtn = 'Submit';
       }
     }
     else{
